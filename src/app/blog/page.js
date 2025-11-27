@@ -5,83 +5,39 @@ export default async function BlogPage() {
   const allPostsData = getSortedPostsData();
 
   return (
-    <div style={{
-      maxWidth: '800px',
-      margin: '0 auto',
-      padding: '4rem 2rem',
-      minHeight: '100vh',
-    }}>
-      <header style={{ marginBottom: '4rem', textAlign: 'center' }}>
-        <Link href="/" style={{ 
-          color: '#94a1b2', 
-          textDecoration: 'none', 
-          marginBottom: '1rem', 
-          display: 'inline-block',
-          fontSize: '0.9rem'
-        }}>
-          ← Back to Home
-        </Link>
-        <h1 style={{ 
-          color: '#7f5af0', 
-          fontSize: '2.5rem', 
-          marginTop: '0.5rem' 
-        }}>
-          Blog
-        </h1>
-        <p style={{ color: '#94a1b2', fontSize: '1.1rem' }}>
-          Thoughts, tutorials, and updates.
-        </p>
-      </header>
+    <div className="min-h-screen bg-[#0a0a0c] text-white p-8 font-sans">
+      <div className="max-w-4xl mx-auto">
+        <header className="mb-12 text-center">
+          <h1 className="text-5xl font-bold mb-4" style={{ color: '#7f5af0', textShadow: '0 0 10px rgba(127, 90, 240, 0.5)' }}>
+            DevLog
+          </h1>
+          <p className="text-xl text-gray-400">
+            Insights from the <span style={{ color: '#2cb67d' }}>digital frontier</span>.
+          </p>
+        </header>
 
-      <main>
-        <ul style={{ listStyle: 'none', padding: 0 }}>
+        <div className="grid gap-6">
           {allPostsData.map(({ slug, date, title, description }) => (
-            <li key={slug} style={{ marginBottom: '2.5rem' }}>
-              <Link href={`/blog/${slug}`} style={{ textDecoration: 'none' }}>
-                <div style={{
-                  padding: '1.5rem',
-                  border: '1px solid rgba(148, 161, 178, 0.2)',
-                  borderRadius: '8px',
-                  transition: 'transform 0.2s ease, border-color 0.2s ease',
-                  backgroundColor: 'rgba(255, 255, 255, 0.02)'
-                }}
-                className="blog-card"
-                >
-                  <h2 style={{ 
-                    color: '#fffffe', 
-                    margin: '0 0 0.5rem 0', 
-                    fontSize: '1.5rem' 
-                  }}>
+            <Link href={`/blog/${slug}`} key={slug} className="group">
+              <div 
+                className="p-6 rounded-xl border border-gray-800 bg-gray-900/50 transition-all duration-300 hover:border-[#2cb67d] hover:shadow-[0_0_15px_rgba(44,182,125,0.2)]"
+              >
+                <div className="flex justify-between items-baseline mb-2">
+                  <h2 className="text-2xl font-bold group-hover:text-[#2cb67d] transition-colors">
                     {title}
                   </h2>
-                  <small style={{ 
-                    color: '#94a1b2', 
-                    display: 'block', 
-                    marginBottom: '0.5rem' 
-                  }}>
+                  <span className="text-sm font-mono text-[#7f5af0]">
                     {date}
-                  </small>
-                  <p style={{ 
-                    color: '#94a1b2', 
-                    margin: 0, 
-                    lineHeight: '1.6' 
-                  }}>
-                    {description}
-                  </p>
+                  </span>
                 </div>
-              </Link>
-            </li>
+                <p className="text-gray-400 leading-relaxed">
+                  {description}
+                </p>
+              </div>
+            </Link>
           ))}
-        </ul>
-      </main>
-      
-      {/* Add hover effect via style tag for simplicity in this component */}
-      <style>{`
-        .blog-card:hover {
-          border-color: #7f5af0 !important;
-          transform: translateY(-2px);
-        }
-      `}</style>
+        </div>
+      </div>
     </div>
   );
 }

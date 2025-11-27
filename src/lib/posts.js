@@ -5,11 +5,11 @@ import matter from 'gray-matter';
 const postsDirectory = path.join(process.cwd(), 'content/posts');
 
 export function getSortedPostsData() {
-  // Get file names under /content/posts
+  // Create directory if it doesn't exist
   if (!fs.existsSync(postsDirectory)) {
     return [];
   }
-  
+
   const fileNames = fs.readdirSync(postsDirectory);
   const allPostsData = fileNames.map((fileName) => {
     // Remove ".mdx" from file name to get id
@@ -48,7 +48,7 @@ export function getPostData(slug) {
 
   return {
     slug,
-    metadata: matterResult.data,
     content: matterResult.content,
+    ...matterResult.data,
   };
 }
