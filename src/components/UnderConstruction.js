@@ -1,3 +1,4 @@
+'use client';
 // src/components/UnderConstruction.js
 import Link from 'next/link';
 import styles from './HeroTitle.module.css'; // Reuse the glow effects
