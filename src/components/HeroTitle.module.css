@@ -1,0 +1,124 @@
+/* HeroTitle.module.css */
+
+.container {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* Layer 1: English Text (The Placeholder) */
+.englishLayer {
+  display: block;
+  opacity: 1;
+  transition: opacity 0.3s ease 0.1s; /* Duration 0.3s, Delay 0.1s */
+  
+  /* Typography & Styling matching global theme */
+  font-size: 4rem; /* Matches previous h1 size */
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+  color: #7f5af0; /* Electric Purple */
+  text-shadow: 0 0 20px rgba(127, 90, 240, 0.6);
+  
+  /* --- Typewriter & Blink Effect Restored --- */
+  overflow: hidden; /* Hide text until typed */
+  border-right: 4px solid #7f5af0; /* The Cursor */
+  width: 0; /* Start with 0 width */
+  
+  /* Animation: Typewriter (1.5s) + Blink (infinite) */
+  animation: 
+    typewriter 1.5s steps(18) 0.5s 1 normal both,
+    blink 0.75s steps(18) infinite;
+}
+
+/* Layer 2: Greek Text (The Overlay) */
+.greekLayer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  transition: opacity 0.3s ease 0.1s; /* Duration 0.3s, Delay 0.1s */
+  pointer-events: none;
+
+  /* Typography */
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+  color: #7f5af0;
+  text-shadow: 0 0 20px rgba(127, 90, 240, 0.6);
+}
+
+/* Optional: Add cursor to Greek text too (on the box edge) 
+   Note: Since this is absolutely centered, the cursor will appear 
+   at the edge of the "English" width box. */
+.container:hover .greekLayer {
+  border-right: 4px solid #7f5af0;
+  animation: blink 0.75s steps(18) infinite;
+}
+
+
+/* --- Hover Effects --- */
+
+/* Fade out English */
+.container:hover .englishLayer {
+  opacity: 0;
+  border-right-color: transparent; /* Hide cursor on English text when hovered */
+}
+
+/* Fade in Greek */
+.container:hover .greekLayer {
+  opacity: 1;
+}
+
+/* --- Disable Hover Effect (when language is English) --- */
+.noHoverEffect:hover .englishLayer {
+  opacity: 1 !important; /* Ensure English text always visible on hover */
+  border-right-color: #7f5af0 !important; /* Keep cursor visible */
+}
+
+.noHoverEffect:hover .greekLayer {
+  opacity: 0 !important; /* Ensure Greek text always hidden on hover */
+}
+
+
+/* --- Keyframes --- */
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 18ch; /* Exactly 18 characters for 'Christos Kataxenos' */
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* --- Mobile --- */
+@media (max-width: 768px) {
+  .englishLayer, .greekLayer {
+    font-size: 2.5rem;
+    white-space: normal;
+    text-align: center;
+  }
+  
+  /* Disable typewriter on mobile if it causes wrapping issues, 
+     or adjust width animation. For now, let's keep it simple. */
+  .englishLayer {
+     width: auto;
+     border-right: none;
+     animation: fade-in 1s ease-out forwards;
+  }
+  
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
