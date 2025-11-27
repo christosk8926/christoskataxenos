@@ -26,7 +26,7 @@ export default function Home() {
       {/* Section 2: Biography */}
       <section id="bio" className="section content-section">
         <div className="card-wrapper">
-          <SpotlightCard href="https://bio.christoskataxenos.com">
+          <SpotlightCard href="https://christoskataxenos.com/bio">
             <div className="card-icon">
               <UserIcon />
             </div>
@@ -39,7 +39,7 @@ export default function Home() {
       {/* Section 3: Dev Blog */}
       <section id="blog" className="section content-section">
         <div className="card-wrapper">
-          <SpotlightCard href="https://blog.christoskataxenos.com">
+          <SpotlightCard href="https://christoskataxenos.com/blog">
             <div className="card-icon">
               <CodeIcon />
             </div>
@@ -52,7 +52,7 @@ export default function Home() {
       {/* Section 4: Photography Portfolio */}
       <section id="portfolio" className="section content-section">
         <div className="card-wrapper">
-          <SpotlightCard href="https://portfolio.christoskataxenos.com">
+          <SpotlightCard href="https://christoskataxenos.com/portfolio">
             <div className="card-icon">
               <CameraIcon />
             </div>
