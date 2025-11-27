@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',  // <--- Required for GitHub Pages (static site)
+  output: 'export',  // <--- ΑΥΤΟ ΕΛΕΙΠΕ! Χωρίς αυτό βλέπεις μόνο το Readme.
   images: {
-    unoptimized: true, // <--- Required for images to work on GitHub Pages
+    unoptimized: true, // Απαραίτητο για να φαίνονται οι εικόνες στο GitHub
   },
 };
 
