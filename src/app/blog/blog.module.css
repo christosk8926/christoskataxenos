@@ -1,0 +1,70 @@
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  min-height: 100vh;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  /* Αλλάζουμε το λευκό σε ανοιχτό μωβ για να είναι πιο ξεκούραστο */
+  color: #a78bfa; 
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  /* Μειωμένη λάμψη (πιο διακριτική) */
+  text-shadow: 0 0 15px rgba(127, 90, 240, 0.4);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.cardLink {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: #7f5af0;
+  box-shadow: 0 10px 30px -10px rgba(127, 90, 240, 0.3);
+}
+
+.date {
+  font-size: 0.85rem;
+  color: #888;
+  display: block;
+  margin-bottom: 0.5rem;
+  font-family: monospace;
+}
+
+.card h2 {
+  font-size: 1.5rem;
+  margin: 0 0 1rem 0;
+  color: #fff;
+}
+
+.card p {
+  color: #ccc;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+}
