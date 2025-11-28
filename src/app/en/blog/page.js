@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import { getSortedPostsData } from '../../../../lib/posts';
-import BlogCard from '../../../../components/BlogCard';
+import { getSortedPostsData } from '../../../lib/posts';
+import BlogCard from '../../../components/BlogCard';
 
 export const metadata = {
   title: 'Blog | Christos Kataxenos',
