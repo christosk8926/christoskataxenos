@@ -16,11 +16,6 @@ export default function BlogPage() {
       <div className="max-w-[800px] mx-auto space-y-6">
         
         <header className="mb-12 text-center pt-8 relative">
-          <div className="absolute top-0 right-0">
-            <Link href="/blog" className="text-sm font-mono text-gray-500 hover:text-purple-400 transition-colors">
-              GR / <span className="text-white">EN</span>
-            </Link>
-          </div>
           
           <h1 className="text-4xl font-bold tracking-tight text-white mb-4">
             Blog
