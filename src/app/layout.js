@@ -24,7 +24,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="el">
-      {/* ΠΡΟΣΟΧΗ: Πρόσθεσα το 'font-sans' και 'antialiased' εδώ! */}
+      {/* Font configuration */}
       <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased text-white bg-[#0a0a0c]`}>
         <GridBackground />
         <Providers>
