@@ -1,0 +1,68 @@
+---
+title: "HOU Survival Guide: Panic Management"
+date: "2025-11-28"
+description: "First contact with academic material and the realization that 'Studying' is a relative term."
+tags: ["uni-life", "eap", "survival", "python"]
+---
+
+I thought the hard part was getting accepted into the University. How innocent I was.
+
+Almost 2 months after the start of my studies, and having a "random" idea about the university, I started studying just as I had learned in the **ancient years** when I was still in school.
+
+We barely start, and already from the 1st week, they send us the topics for our first Written Assignments. And that's when I realize that Computer Science at HOU isn't just coding, it's **panic management**.
+
+For the 2 courses I chose for my 1st year, fortunately, **Morpheus** got into my head and made me think logically. I chose ONLY 2. I wrote quite well (almost perfectly I would say, if I had the brains I had in high school).
+
+But a week after we got the grades, the **2nd Written Assignment** drops. And that's when the party starts: not even understanding the problem statements.
+
+BUT, that's why we are here. To make it.
+
+## The Equation of Despair
+
+As a young scientist (not in age, but in the world of science), I tried to model my situation programmatically. I discovered that study efficiency ($E$) is inversely proportional to the volume of information ($I$) and the square of open tabs in the browser ($T$).
+
+```math
+E = 1 / (I * T^2)
+```
+
+In short: The more tabs I have open to find "the solution", the less I understand what's going on.
+
+## The Study Algorithm
+
+I tried to organize my schedule by writing a Python script. The logic was simple: *"While I have energy, I study"*.
+
+Unfortunately, I forgot to calculate the "Social Media" factor and the script entered an infinite loop of procrastination.
+
+```python
+import time
+import random
+
+def study_session(energy_level):
+    caffeine_intake = 0
+    
+    while energy_level > 0:
+        print("Reading paragraph 3...")
+        time.sleep(1) # Simulation of concentration
+        
+        # The system bug
+        distraction = random.choice([
+            "Discord", 
+            "Fridge", 
+            "Craving sweet or salty"
+        ])
+        
+        if distraction:
+            print(f"Critical Error: Distracted by {distraction}")
+            energy_level -= 10
+            caffeine_intake += 1
+            
+        if caffeine_intake > 5:
+            print("Warning: Hands are shaking. Abort mission.")
+            break
+
+    return "I'll start on Monday"
+
+# Run at your own risk
+status = study_session(100)
+print(status)
+```

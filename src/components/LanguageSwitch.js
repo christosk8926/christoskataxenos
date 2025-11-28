@@ -15,29 +15,21 @@ export default function LanguageSwitch() {
   }, []);
 
   const handleToggle = () => {
-    // If we are on a blog page, handle URL routing
     if (pathname.includes('/blog')) {
       if (pathname.startsWith('/en/blog')) {
-        // Switch to Greek: Remove '/en' from URL
         const newPath = pathname.replace('/en', '');
         router.push(newPath);
       } else {
-        // Switch to English: Add '/en' to URL
         const newPath = `/en${pathname}`;
         router.push(newPath);
       }
-      // Sync context state if needed (optional, as URL drives content here)
-      if (language === 'en') toggleLanguage(); // if currently en, toggle to el (logic might differ depending on initial state)
+      if (language === 'en') toggleLanguage(); 
       else if (language === 'el') toggleLanguage();
-
     } else {
-      // For non-blog pages (Home), just toggle context state
       toggleLanguage();
     }
   };
 
-  // Determine active language for display
-  // If on blog, URL truth. Else, Context truth.
   const isEn = mounted ? (pathname.startsWith('/en') || (language === 'en' && !pathname.startsWith('/blog'))) : false;
 
   if (!mounted) return null;
@@ -61,6 +53,8 @@ export default function LanguageSwitch() {
           cursor: pointer;
           padding: 0.5rem;
           z-index: 1000;
+          /* Ensure it doesn't get cut off on small screens or tight layouts */
+          margin-right: 1rem; 
         }
 
         .toggle-track {
@@ -68,8 +62,8 @@ export default function LanguageSwitch() {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          width: 80px;
-          height: 36px;
+          width: 90px; /* Slightly wider for better touch target */
+          height: 40px; /* Taller for better accessibility */
           background: rgba(255, 255, 255, 0.05);
           border: 1px solid rgba(255, 255, 255, 0.1);
           border-radius: 999px;
@@ -85,13 +79,14 @@ export default function LanguageSwitch() {
 
         .lang-label {
           font-family: var(--font-mono);
-          font-size: 0.75rem;
+          font-size: 0.85rem; /* Slightly larger font */
           font-weight: 600;
           color: #94a1b2;
           z-index: 2;
           transition: color 0.3s ease;
           width: 50%;
           text-align: center;
+          user-select: none;
         }
 
         .lang-label.active {
@@ -100,9 +95,9 @@ export default function LanguageSwitch() {
 
         .toggle-thumb {
           position: absolute;
-          top: 3px;
-          width: 34px;
-          height: 28px;
+          top: 4px; /* Centered vertically */
+          width: 38px; /* Matches wider track */
+          height: 30px;
           background: #7f5af0;
           border-radius: 999px;
           z-index: 1;
@@ -115,7 +110,27 @@ export default function LanguageSwitch() {
         }
 
         .toggle-thumb.right {
-          transform: translateX(38px);
+          transform: translateX(40px); /* Adjusted for wider track */
+        }
+
+        @media (max-width: 768px) {
+           .lang-switch {
+             margin-right: 0.5rem; /* Reduce margin on mobile but keep some */
+           }
+           .toggle-track {
+             width: 80px;
+             height: 36px;
+           }
+           .toggle-thumb {
+             width: 34px;
+             height: 26px;
+           }
+           .toggle-thumb.right {
+             transform: translateX(34px);
+           }
+           .lang-label {
+             font-size: 0.75rem;
+           }
         }
       `}</style>
     </button>
