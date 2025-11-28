@@ -17,7 +17,7 @@ export default function Blog() {
         <p style={{color: '#94a1b2'}}>Insights from the digital frontier.</p>
       </header>
 
-      <div className={styles.grid}>
+      <div className="blog-container">
         {allPostsData.map(({ slug, date, title, description }) => (
           <Link href={`/blog/${slug}`} key={slug} className={styles.cardLink}>
             <article className={styles.card}>

@@ -226,13 +226,21 @@ h1, h2, h3 {
 
 /* --- BLOG STYLING --- */
 .blog-container {
+  /* Layout Reset */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2.5rem;
+  
+  /* Centering Logic - CRITICAL */
   width: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 6rem 1.5rem 4rem;
-  min-height: auto;
-  position: relative;
-  z-index: 1;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1.5rem;
+  
+  /* Alignment */
+  justify-content: center;
+  align-content: center;
 }
 
 .blog-header {
@@ -255,6 +263,40 @@ h1, h2, h3 {
   font-family: var(--font-mono);
 }
 
+/* Back link style - Updated */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  font-family: monospace; /* Cyberpunk feel */
+  font-size: 1rem;
+  color: #94a3b8;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.back-link:hover {
+  color: #a855f7;
+  transform: translateX(-5px);
+}
+
+/* Post Container and Title */
+.post-container {
+  width: 100%;
+  max-width: 800px; /* Adjust as needed for optimal reading width */
+  margin: 0 auto;
+  padding: 6rem 1.5rem 4rem; /* Top padding for header space */
+}
+
+.post-title {
+  font-size: 2.75rem; /* Large, prominent title */
+  font-weight: 800;
+  color: #fffffe;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 2rem;
+}
+
 /* Typography for Articles */
 .prose {
   max-width: 750px; /* Optimized for readability on desktop */
@@ -262,25 +304,6 @@ h1, h2, h3 {
   font-size: 1.125rem; /* 18px base size */
   line-height: 1.75;
   color: #d1d5db;
-}
-
-/* Back link style - Modernized */
-.back-link {
-  display: inline-flex;
-  align-items: center;
-  margin-bottom: 2rem;
-  text-decoration: none;
-  color: #94a3b8; /* Grey color */
-  font-size: 1rem;
-  font-weight: 500;
-  transition: color 0.2s ease;
-}
-.back-link:hover {
-  color: #a855f7; /* Purple on hover */
-}
-.back-link::before {
-  content: "←"; /* Add arrow explicitly via CSS or ensure text has it */
-  margin-right: 8px;
 }
 
 .prose h1 {

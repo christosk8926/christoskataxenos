@@ -1,16 +1,16 @@
 .container {
   width: 100%;
-  max-width: 1200px;  /* Stops it from stretching too wide */
-  margin-left: auto;  /* Forces centering */
-  margin-right: auto; /* Forces centering */
-  padding: 0 2rem;    /* "Αέρας" δεξιά-αριστερά για κινητά */
+  max-width: 1200px;  /* Updated max-width */
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1.5rem;    /* Updated padding to match new .blog-container horizontal */
   min-height: auto; 
 }
 
 .header {
   text-align: center;
   margin-bottom: 4rem;
-  padding-top: 6rem; /* Add back top padding to header as container padding is 0 */
+  padding-top: 6rem;
 }
 
 .title {
@@ -22,12 +22,7 @@
   text-shadow: 0 0 20px rgba(127, 90, 240, 0.3);
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* Responsive columns */
-  gap: 2rem;
-  justify-content: center; /* Center the grid */
-}
+/* Removed .grid rule, as it's now handled by global .blog-container */
 
 .cardLink {
   text-decoration: none;
@@ -112,9 +107,5 @@
   
   .title {
     font-size: 2.5rem;
-  }
-
-  .grid {
-    grid-template-columns: 1fr;
   }
 }

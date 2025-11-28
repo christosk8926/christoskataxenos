@@ -15,14 +15,15 @@ export default async function Post({ params }) {
   const postData = await getPostData(resolvedParams.slug);
 
   return (
-    <div className="blog-container">
-      <article className="prose">
-        <Link href="/blog" className="back-link">Back to Blog</Link>
-        <h1>{postData.title}</h1>
-        <div className="post-date">{postData.date}</div>
+    <div className="post-container">
+      <Link href="/blog" className="back-link">
+        ← Back to Blog
+      </Link>
+
+      <h1 className="post-title">{postData.title}</h1>
+      <div className="post-date">{postData.date}</div>
         
-        <MDXRemote source={postData.content} />
-      </article>
+      <MDXRemote source={postData.content} />
     </div>
   );
 }
