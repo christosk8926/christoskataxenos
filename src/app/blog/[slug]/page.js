@@ -17,7 +17,7 @@ export default async function Post({ params }) {
   return (
     <div className="blog-container">
       <article className="prose">
-        <Link href="/blog" className="back-link">← Back to Blog</Link>
+        <Link href="/blog" className="back-link">Back to Blog</Link>
         <h1>{postData.title}</h1>
         <div className="post-date">{postData.date}</div>
         

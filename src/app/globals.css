@@ -268,20 +268,19 @@ h1, h2, h3 {
 .back-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem; /* Space between arrow and text */
   margin-bottom: 2rem;
-  color: #94a1b2; /* Muted gray text */
   text-decoration: none;
-  font-size: 0.95rem;
+  color: #94a3b8; /* Grey color */
+  font-size: 1rem;
   font-weight: 500;
-  transition: all 0.2s ease;
-  cursor: pointer;
-  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease;
 }
-
 .back-link:hover {
-  color: #7f5af0; /* Brand Purple on hover */
-  transform: translateX(-5px); /* Subtle slide left effect */
+  color: #a855f7; /* Purple on hover */
+}
+.back-link::before {
+  content: "←"; /* Add arrow explicitly via CSS or ensure text has it */
+  margin-right: 8px;
 }
 
 .prose h1 {

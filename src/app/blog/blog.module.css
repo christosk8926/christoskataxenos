@@ -1,15 +1,16 @@
 .container {
   width: 100%;
-  max-width: 1200px; /* Limit width on large screens */
-  margin-left: auto;
-  margin-right: auto;
-  padding: 6rem 20px 4rem;
+  max-width: 1200px;  /* Stops it from stretching too wide */
+  margin-left: auto;  /* Forces centering */
+  margin-right: auto; /* Forces centering */
+  padding: 0 2rem;    /* "Αέρας" δεξιά-αριστερά για κινητά */
   min-height: auto; 
 }
 
 .header {
   text-align: center;
   margin-bottom: 4rem;
+  padding-top: 6rem; /* Add back top padding to header as container padding is 0 */
 }
 
 .title {
@@ -23,7 +24,7 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Automatically fill the grid */
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* Responsive columns */
   gap: 2rem;
   justify-content: center; /* Center the grid */
 }

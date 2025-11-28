@@ -2,7 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { Providers } from "../components/Providers";
-import LanguageSwitch from "../components/LanguageSwitch";
+// LanguageSwitch is now integrated into Header component
 import GridBackground from "../components/GridBackground";
 import Header from "../components/Header";
 
@@ -29,7 +29,6 @@ export default function RootLayout({ children }) {
         <GridBackground />
         <Providers>
           <Header />
-          <LanguageSwitch />
           {children}
         </Providers>
       </body>

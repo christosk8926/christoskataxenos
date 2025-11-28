@@ -1,32 +1,15 @@
 'use client';
 
-import Link from 'next/link';
+import LanguageSwitch from './LanguageSwitch'; // Import LanguageSwitch
 
 export default function Header() {
   return (
     <header className="navbar">
-      <Link href="/" className="home-link" aria-label="Home">
-        <svg 
-          xmlns="http://www.w3.org/2000/svg" 
-          width="24" 
-          height="24" 
-          viewBox="0 0 24 24" 
-          fill="none" 
-          stroke="currentColor" 
-          strokeWidth="2" 
-          strokeLinecap="round" 
-          strokeLinejoin="round"
-        >
-          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-          <polyline points="9 22 9 12 15 12 15 22"></polyline>
-        </svg>
-      </Link>
+      {/* Home icon (house SVG) REMOVED as requested */}
+      {/* The left side is now empty, fulfilling the "almost empty" requirement */}
 
-      {/* Language Switcher is positioned absolutely via its own component styles, 
-          so we don't render it here to avoid layout conflicts, 
-          but this header reserves the visual space if needed. 
-          The "CK" text has been removed as requested. 
-      */}
+      {/* Language Switcher on the right side */}
+      <LanguageSwitch />
       
       <style jsx>{`
         .navbar {
@@ -34,33 +17,19 @@ export default function Header() {
           top: 0;
           left: 0;
           width: 100%;
-          height: 80px; /* Increased slightly to not crowd top elements */
+          height: 80px;
           display: flex;
           align-items: center;
-          justify-content: space-between;
+          justify-content: flex-end; /* Push LanguageSwitch to the right */
           padding: 0 2rem;
-          z-index: 900; /* Below LanguageSwitch (z-100) but above content */
-          pointer-events: none; /* Let clicks pass through empty areas */
+          z-index: 900;
+          pointer-events: none;
         }
 
-        .home-link {
-          pointer-events: auto;
-          color: #94a1b2;
-          transition: all 0.3s ease;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 10px;
-          border-radius: 50%;
-          background: rgba(255,255,255,0.02);
-          backdrop-filter: blur(5px);
-        }
-
-        .home-link:hover {
-          color: #7f5af0;
-          background: rgba(127, 90, 240, 0.1);
-          transform: translateY(-2px);
-          box-shadow: 0 0 15px rgba(127, 90, 240, 0.3);
+        /* Override LanguageSwitch's internal padding for consistent header padding */
+        .navbar :global(.lang-switch) {
+          padding: 0.5rem 1rem;
+          pointer-events: auto; /* Re-enable pointer events for the button */
         }
 
         @media (max-width: 768px) {

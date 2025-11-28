@@ -17,9 +17,7 @@ export default function LanguageSwitch() {
 
       <style jsx>{`
         .lang-switch {
-          position: absolute;
-          top: 2rem;
-          right: 2rem;
+          /* Removed position: absolute; top: 2rem; right: 2rem; */
           background: transparent;
           border: 1px solid rgba(127, 90, 240, 0.3);
           border-radius: 50px;
@@ -54,8 +52,7 @@ export default function LanguageSwitch() {
 
         @media (max-width: 768px) {
             .lang-switch {
-                top: 1rem;
-                right: 1rem;
+                /* top: 1rem; right: 1rem; also removed */
                 padding: 0.4rem 0.8rem;
             }
         }
