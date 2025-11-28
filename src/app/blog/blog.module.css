@@ -1,8 +1,9 @@
 .container {
   width: 100%;
-  max-width: 1000px; /* Περιορίζουμε το πλάτος για να μην απλώνει σε ultrawide οθόνες */
-  margin: 0 auto;    /* Κεντράρισμα στη μέση της οθόνης */
-  padding: 6rem 20px 4rem;   /* "Αέρας" δεξιά-αριστερά για κινητά, διατηρώντας κάθετο padding */
+  max-width: 1200px; /* Limit width on large screens */
+  margin-left: auto;
+  margin-right: auto;
+  padding: 6rem 20px 4rem;
   min-height: auto; 
 }
 
@@ -22,16 +23,16 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Αυτόματη δημιουργία στηλών */
-  gap: 2rem; /* Κενό ανάμεσα στα cards */
-  justify-content: center; /* Κεντράρισμα του grid */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Automatically fill the grid */
+  gap: 2rem;
+  justify-content: center; /* Center the grid */
 }
 
 .cardLink {
   text-decoration: none;
   color: inherit;
   display: block;
-  height: 100%; /* Ensure link fills the grid cell */
+  height: 100%;
 }
 
 .card {
@@ -39,7 +40,7 @@
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 16px;
   padding: 2rem;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Smooth transition for hover */
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -57,17 +58,17 @@
   background: linear-gradient(to bottom right, rgba(127, 90, 240, 0.1), transparent);
   opacity: 0;
   transition: opacity 0.4s ease;
-  z-index: 0; /* Ensure it's behind content but above background */
+  z-index: 0;
 }
 
 .card:hover {
-  transform: translateY(-8px); /* Lift effect */
-  border-color: #7f5af0; /* Glow border */
-  box-shadow: 0 0 25px -5px rgba(127, 90, 240, 0.6); /* More prominent shadow glow */
+  transform: translateY(-8px);
+  border-color: #7f5af0;
+  box-shadow: 0 0 25px -5px rgba(127, 90, 240, 0.6);
 }
 
 .card:hover::before {
-  opacity: 1; /* Show gradient on hover */
+  opacity: 1;
 }
 
 .date {
@@ -78,7 +79,7 @@
   font-family: var(--font-mono);
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  position: relative; /* Ensure date is above pseudo-element */
+  position: relative;
   z-index: 1;
 }
 
@@ -105,7 +106,7 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .container {
-    padding: 4rem 20px; /* Adjusted padding for mobile */
+    padding: 4rem 20px;
   }
   
   .title {
@@ -113,6 +114,6 @@
   }
 
   .grid {
-    grid-template-columns: 1fr; /* Single column on small screens */
+    grid-template-columns: 1fr;
   }
 }

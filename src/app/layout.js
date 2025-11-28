@@ -4,6 +4,7 @@ import "./globals.css";
 import { Providers } from "../components/Providers";
 import LanguageSwitch from "../components/LanguageSwitch";
 import GridBackground from "../components/GridBackground";
+import Header from "../components/Header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <GridBackground />
         <Providers>
+          <Header />
           <LanguageSwitch />
           {children}
         </Providers>
