@@ -251,18 +251,18 @@ h1, h2, h3 {
 
 /* Typography for Articles */
 .prose {
-  max-width: 750px;
-  margin: 0 auto;
-  font-size: 1.125rem;
+  max-width: 750px; /* Optimized for readability on desktop */
+  margin: 0 auto; /* Center the prose content */
+  font-size: 1.125rem; /* 18px base size */
   line-height: 1.75;
   color: #d1d5db;
 }
 
 /* Back link style */
-.prose .read-more {
+.prose .back-to-blog-link { /* Changed class name for clarity */
   display: inline-flex;
   align-items: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem; /* Added margin for breathing space */
   color: #94a1b2;
   font-weight: 500;
   font-size: 0.95rem;
@@ -270,7 +270,7 @@ h1, h2, h3 {
   transition: color 0.2s ease, transform 0.2s ease;
 }
 
-.prose .read-more:hover {
+.prose .back-to-blog-link:hover {
   color: #7f5af0;
   transform: translateX(-5px);
 }
