@@ -2,7 +2,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { Providers } from "../components/Providers";
-// LanguageSwitch is now integrated into Header component
 import GridBackground from "../components/GridBackground";
 import Header from "../components/Header";
 
@@ -25,11 +24,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="el">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      {/* ΠΡΟΣΟΧΗ: Πρόσθεσα το 'font-sans' και 'antialiased' εδώ! */}
+      <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased text-white bg-[#0a0a0c]`}>
         <GridBackground />
         <Providers>
           <Header />
-          {children}
+          <main className="min-h-screen relative z-10">
+             {children}
+          </main>
         </Providers>
       </body>
     </html>
