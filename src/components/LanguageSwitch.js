@@ -53,7 +53,6 @@ export default function LanguageSwitch() {
           cursor: pointer;
           padding: 0.5rem;
           z-index: 1000;
-          /* Ensure it doesn't get cut off on small screens or tight layouts */
           margin-right: 1rem; 
         }
 
@@ -62,12 +61,13 @@ export default function LanguageSwitch() {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          width: 90px; /* Slightly wider for better touch target */
-          height: 40px; /* Taller for better accessibility */
+          width: 96px; /* Increased width */
+          height: 40px; 
           background: rgba(255, 255, 255, 0.05);
           border: 1px solid rgba(255, 255, 255, 0.1);
           border-radius: 999px;
-          padding: 0 6px;
+          padding: 4px; /* Uniform padding */
+          box-sizing: border-box;
           box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
           transition: all 0.3s ease;
         }
@@ -79,7 +79,7 @@ export default function LanguageSwitch() {
 
         .lang-label {
           font-family: var(--font-mono);
-          font-size: 0.85rem; /* Slightly larger font */
+          font-size: 0.85rem;
           font-weight: 600;
           color: #94a1b2;
           z-index: 2;
@@ -95,8 +95,9 @@ export default function LanguageSwitch() {
 
         .toggle-thumb {
           position: absolute;
-          top: 4px; /* Centered vertically */
-          width: 38px; /* Matches wider track */
+          top: 4px;
+          left: 4px;
+          width: 42px; /* Calculated: (96 - 8) / 2 - gap? No, (96-8)/2 = 44. Let's use 42 to leave a tiny gap */
           height: 30px;
           background: #7f5af0;
           border-radius: 999px;
@@ -110,23 +111,35 @@ export default function LanguageSwitch() {
         }
 
         .toggle-thumb.right {
-          transform: translateX(40px); /* Adjusted for wider track */
+          transform: translateX(44px); /* 96 - 4 - 4 - 42 = 46? No. 4 + 44 = 48. Width 96. Right edge 96-4=92. Thumb right: 48+42=90. */
+          /* Let's do exact math. 
+             Container Inner Width = 96 - 8 = 88.
+             Thumb Width = 44.
+             Travel = 88 - 44 = 44.
+          */
+          width: 44px;
         }
 
         @media (max-width: 768px) {
            .lang-switch {
-             margin-right: 0.5rem; /* Reduce margin on mobile but keep some */
+             margin-right: 0.5rem;
            }
            .toggle-track {
-             width: 80px;
+             width: 84px;
              height: 36px;
+             padding: 3px;
            }
+           /* Inner width: 84 - 6 = 78 */
+           /* Thumb width: 39 */
            .toggle-thumb {
-             width: 34px;
-             height: 26px;
+             top: 3px;
+             left: 3px;
+             width: 39px; 
+             height: 28px;
            }
            .toggle-thumb.right {
-             transform: translateX(34px);
+             transform: translateX(39px);
+             width: 39px;
            }
            .lang-label {
              font-size: 0.75rem;
