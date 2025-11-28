@@ -17,7 +17,7 @@ export default async function Post({ params }) {
   return (
     <div className="blog-container">
       <article className="prose">
-        <Link href="/blog" className="read-more" style={{ display: 'inline-block', marginBottom: '2rem' }}>← Back to Blog</Link>
+        <Link href="/blog" className="read-more">← Back to Blog</Link>
         <h1>{postData.title}</h1>
         <div className="post-date" style={{marginBottom: '3rem'}}>{postData.date}</div>
         

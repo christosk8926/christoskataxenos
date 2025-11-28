@@ -14,11 +14,10 @@
 html {
   scroll-behavior: smooth;
   background-color: #0a0a0c !important;
-  height: 100%;
 }
 
 body {
-  height: 100%;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -328,10 +327,27 @@ code {
   line-height: 1.8;
 }
 
+/* Back link style */
+.prose .read-more {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  color: #94a1b2;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.prose .read-more:hover {
+  color: #7f5af0;
+  transform: translateX(-5px);
+  text-decoration: none;
+}
+
 .prose h1 {
   /* Neon title replacement */
   font-size: 2.5rem;
-  margin-top: 1rem;
+  margin-top: 0;
   margin-bottom: 2rem;
   font-weight: 800;
   color: #fff;
