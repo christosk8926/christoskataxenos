@@ -19,16 +19,18 @@ export default function Header() {
           z-index: 900;
           pointer-events: none;
           display: flex;
-          justify-content: center; /* Centering the wrapper usually helps */
+          justify-content: center; /* Centering the wrapper for its max-width content */
         }
 
         .header-content {
           width: 100%;
-          max-width: 1200px; /* Constrain width to match typical content max-width */
-          padding: 0 2rem;
+          max-width: 768px; /* Align with blog content (max-w-3xl) */
+          margin-left: auto; /* Center the content */
+          margin-right: auto; /* Center the content */
+          padding: 0 1rem; /* Adjust padding for better alignment with blog p-8 or p-6 */
           display: flex;
           align-items: center;
-          justify-content: flex-end; /* Keep it on the right */
+          justify-content: flex-end; /* Keep LanguageSwitch on the right within this aligned container */
           height: 100%;
         }
 
@@ -41,7 +43,7 @@ export default function Header() {
                 height: 70px;
             }
             .header-content {
-                padding: 0 1.5rem; /* Ensure safe padding on mobile edges */
+                padding: 0 1rem; /* Ensure safe padding on mobile edges */
             }
         }
       `}</style>
