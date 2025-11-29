@@ -30,7 +30,7 @@ export default function BioSection() {
             <ul className="space-y-6">
               <li className="border-l-2 border-purple-500/50 pl-4">
                 <h4 className="text-white font-semibold text-lg">{t.roles.technician.title}</h4>
-                <p className="text-xs text-gray-500 mb-2">{t.roles.technician.dateLocation}</p>
+                <p className="text-xs text-gray-500 mb-2 font-mono">{t.roles.technician.dateLocation}</p>
                 <div className="text-sm text-gray-300 space-y-2">
                   <p className="font-semibold text-white">{t.roles.technician.responsibilities}</p>
                   <ul className="list-disc list-inside ml-2 text-gray-400 space-y-2">
@@ -54,7 +54,7 @@ export default function BioSection() {
               </li>
               <li className="border-l-2 border-gray-700 pl-4 group-hover:border-purple-500/50 transition-colors duration-300">
                 <h4 className="text-white font-semibold text-lg">{t.roles.security.title}</h4>
-                <p className="text-xs text-gray-500 mb-2">{t.roles.security.date}</p>
+                <p className="text-xs text-gray-500 mb-2 font-mono">{t.roles.security.date}</p>
                 <p className="text-sm text-gray-300">{t.roles.security.description}</p>
               </li>
             </ul>
@@ -94,14 +94,14 @@ export default function BioSection() {
           {/* Interests Section (Child 2 - SEPARATE SIBLING) */}
           <div className="mt-6 w-[300px] bg-gray-900/50 backdrop-blur-sm border border-cyan-900/30 rounded-xl p-4 mx-auto">
             <h5 className="text-[10px] text-gray-500 uppercase tracking-widest mb-3 text-center">PERSONAL MODULE</h5>
-            <div className="grid grid-cols-2 gap-3">
-              {hardcodedInterests.map((interest, index) => (
-                <span 
-                  key={index} 
-                  className="w-full flex justify-center items-center text-center px-3 py-1 text-[10px] font-bold tracking-wider text-cyan-400 uppercase bg-gray-900/60 border border-cyan-500/30 rounded-full hover:bg-cyan-500/20 hover:border-cyan-400 hover:scale-105 transition-all cursor-default"
-                >
-                  {interest}
-                </span>
+                              <div className="grid grid-cols-2 gap-3">
+                          {hardcodedInterests.map((interest, index) => (
+                            <span 
+                              key={index} 
+                              className="w-full flex justify-center items-center text-center px-3 py-1 text-[10px] font-bold tracking-wider text-cyan-400 uppercase bg-gray-900/60 border border-cyan-500/30 rounded-full hover:bg-cyan-500/20 hover:border-cyan-400 hover:scale-105 transition-all cursor-default font-mono"
+                            >
+                              {interest}
+                            </span>
               ))}
             </div>
           </div>
@@ -157,7 +157,7 @@ export default function BioSection() {
                     {group.skills && group.skills.map((skill, index) => (
                       <div key={index}>
                         <div className="flex justify-between text-[10px] font-mono text-gray-300 mb-1.5">
-                          <span>{skill.label}</span>
+                          <span className="font-mono">{skill.label}</span>
                           <span className={`
                             ${skill.level === 'Loading...' || skill.level === 'Exploring' ? 'text-purple-400 animate-pulse' : ''}
                             ${skill.level === 'Intermediate' ? 'text-cyan-400' : ''}
