@@ -31,36 +31,36 @@ export default function BioSection() {
           
           {/* Center to Left (Experience) */}
           <path 
-            d="M 600 400 L 500 400 L 450 400 L 350 400" 
+            d="M 600 400 L 300 400" 
             stroke="url(#wire-gradient)" 
             strokeWidth="2" 
             fill="none"
             filter="url(#glow)"
             className="opacity-60"
           />
-          <circle cx="350" cy="400" r="3" fill="#06b6d4" filter="url(#glow)" />
+          <circle cx="300" cy="400" r="3" fill="#06b6d4" filter="url(#glow)" />
 
           {/* Center to Top Right (Education) */}
           <path 
-            d="M 600 400 L 700 400 L 750 250 L 850 250" 
+            d="M 600 400 L 900 200" 
             stroke="url(#wire-gradient)" 
             strokeWidth="2" 
             fill="none"
             filter="url(#glow)"
             className="opacity-60"
           />
-          <circle cx="850" cy="250" r="3" fill="#06b6d4" filter="url(#glow)" />
+          <circle cx="900" cy="200" r="3" fill="#06b6d4" filter="url(#glow)" />
 
           {/* Center to Bottom Right (Skills) */}
           <path 
-            d="M 600 400 L 700 400 L 750 550 L 850 550" 
+            d="M 600 400 L 900 600" 
             stroke="url(#wire-gradient)" 
             strokeWidth="2" 
             fill="none"
             filter="url(#glow)"
             className="opacity-60"
           />
-          <circle cx="850" cy="550" r="3" fill="#06b6d4" filter="url(#glow)" />
+          <circle cx="900" cy="600" r="3" fill="#06b6d4" filter="url(#glow)" />
         </svg>
       </div>
 
@@ -82,22 +82,22 @@ export default function BioSection() {
             <ul className="space-y-6">
               <li className="border-l-2 border-purple-500/50 pl-4">
                 <h4 className="text-white font-semibold text-lg">{t.roles.technician.title}</h4>
-                <p className="text-sm text-cyan-400 mb-2">{t.roles.technician.dateLocation}</p>
+                <p className="text-xs text-gray-500 mb-2">{t.roles.technician.dateLocation}</p>
                 <div className="text-sm text-gray-300 space-y-2">
                   <p className="font-semibold text-white">{t.roles.technician.responsibilities}</p>
-                  <ul className="list-disc list-inside ml-2 text-gray-400">
+                  <ul className="list-disc list-inside ml-2 text-gray-400 space-y-2">
                     {t.roles.technician.responsibilitiesList.map((item, index) => (
                       <li key={index}>{item}</li>
                     ))}
                   </ul>
                   <p className="font-semibold text-white mt-2">{t.roles.technician.skillsLabel}</p>
-                  <ul className="list-disc list-inside ml-2 text-gray-400">
+                  <ul className="list-disc list-inside ml-2 text-gray-400 space-y-2">
                     {t.roles.technician.skillsList.map((item, index) => (
                       <li key={index}>{item}</li>
                     ))}
                   </ul>
                   <p className="font-semibold text-white mt-2">{t.roles.technician.achievementsLabel}</p>
-                  <ul className="list-disc list-inside ml-2 text-gray-400">
+                  <ul className="list-disc list-inside ml-2 text-gray-400 space-y-2">
                     {t.roles.technician.achievementsList.map((item, index) => (
                       <li key={index}>{item}</li>
                     ))}
@@ -106,7 +106,7 @@ export default function BioSection() {
               </li>
               <li className="border-l-2 border-gray-700 pl-4 group-hover:border-purple-500/50 transition-colors duration-300">
                 <h4 className="text-white font-semibold text-lg">{t.roles.security.title}</h4>
-                <p className="text-sm text-cyan-400 mb-2">{t.roles.security.date}</p>
+                <p className="text-xs text-gray-500 mb-2">{t.roles.security.date}</p>
                 <p className="text-sm text-gray-300">{t.roles.security.description}</p>
               </li>
             </ul>
@@ -159,14 +159,14 @@ export default function BioSection() {
                     <span className="text-white font-medium block">{t.education.university}</span>
                     <span className="text-sm text-gray-300 italic">{t.education.degree}</span>
                  </div>
-                 <span className="text-xs text-cyan-400 font-mono">2025</span>
+                 <span className="text-xs text-gray-500 font-mono">2025</span>
                </li>
                <li className="flex justify-between items-baseline border-b border-white/5 pb-2">
                  <div>
                     <span className="text-white font-medium block">{t.education.iek}</span>
                     <span className="text-sm text-gray-300 italic">{t.education.iekDegree}</span>
                  </div>
-                 <span className="text-xs text-cyan-400 font-mono">2008-2010</span>
+                 <span className="text-xs text-gray-500 font-mono">2008-2010</span>
                </li>
             </ul>
           </div>
@@ -184,7 +184,7 @@ export default function BioSection() {
             <div className="space-y-6">
               {Object.entries(t.skillGroups).map(([key, group]) => (
                 <div key={key}>
-                  <h4 className="text-xs font-bold text-purple-400 uppercase tracking-wider mb-3 border-b border-white/5 pb-1">
+                  <h4 className="text-sm font-bold text-purple-400 uppercase tracking-wider mb-4 border-b border-white/5 pb-1">
                     {group.title}
                   </h4>
                   <div className="space-y-4">
