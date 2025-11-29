@@ -4,6 +4,8 @@ import "./globals.css";
 import { Providers } from "../components/Providers";
 import GridBackground from "../components/GridBackground";
 import Header from "../components/Header";
+import SocialLinks from "../components/SocialLinks"; // Import SocialLinks
+import BackToHomeButton from "../components/BackToHomeButton"; // Import BackToHomeButton
 
 const inter = Inter({
   variable: "--font-inter",
@@ -31,6 +33,8 @@ export default function RootLayout({ children }) {
         <GridBackground />
         <Providers defaultLang="el">
           <Header />
+          <SocialLinks /> {/* Render SocialLinks */}
+          <BackToHomeButton /> {/* Render BackToHomeButton */}
           <main className="min-h-screen relative z-10">
              {children}
           </main>
