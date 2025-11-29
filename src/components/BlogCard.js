@@ -84,7 +84,10 @@ export default function BlogCard({ slug, date, title, description, basePath = '/
           border-radius: 1rem;
           text-decoration: none !important;
           overflow: hidden;
-          padding: 2rem;
+          padding-top: 32px;
+          padding-right: 32px;
+          padding-bottom: 32px;
+          padding-left: 32px;
           transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
           box-sizing: border-box;
         }
