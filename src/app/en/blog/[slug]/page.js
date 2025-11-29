@@ -45,12 +45,16 @@ export default async function Post({ params }) {
 
   return (
     <div className="mx-auto max-w-3xl py-8 pt-24 px-6">
-      <Link href="/en/blog" className="flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-cyan-400 transition-colors mb-10 no-underline">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M19 12H5"></path>
-          <polyline points="12 19 5 12 12 5"></polyline>
-        </svg>
-        Back to Blog
+      <Link 
+        href="/en/blog" 
+        className="group inline-flex items-center gap-2 text-sm font-medium text-gray-400 hover:text-cyan-400 transition-colors mb-12 no-underline"
+      >
+        <span className="transform group-hover:-translate-x-1 transition-transform duration-200 text-lg">
+          ←
+        </span>
+        <span className="uppercase tracking-widest text-xs font-bold">
+          BACK TO BLOG
+        </span>
       </Link>
 
       <article className="prose prose-invert max-w-none font-sans prose-p:font-sans prose-headings:font-sans prose-li:font-sans prose-strong:font-sans leading-loose space-y-6 text-gray-300">

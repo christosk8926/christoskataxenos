@@ -37,7 +37,7 @@ export default async function Post({ params }) {
       {/* --- ΤΟ ΝΕΟ, CYBERPUNK BACK BUTTON --- */}
       <Link 
         href="/blog" 
-        className="group inline-flex items-center gap-3 text-sm font-mono text-gray-500 hover:text-cyan-400 transition-colors mb-12 no-underline"
+        className="group inline-flex items-center gap-2 text-sm font-medium text-gray-400 hover:text-cyan-400 transition-colors mb-12 no-underline"
       >
         <span className="transform group-hover:-translate-x-1 transition-transform duration-200 text-lg">
           ←
