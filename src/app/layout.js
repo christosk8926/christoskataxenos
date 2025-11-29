@@ -4,6 +4,7 @@ import "./globals.css";
 import { Providers } from "../components/Providers";
 import GridBackground from "../components/GridBackground";
 import ClientOnlyFloatingDock from "../components/ClientOnlyFloatingDock"; // Import the new wrapper component
+import ClientOnlySocialMediaDock from "../components/ClientOnlySocialMediaDock"; // Import the new social media dock wrapper
 
 const inter = Inter({
   variable: "--font-inter",
@@ -30,7 +31,8 @@ export default function RootLayout({ children }) {
       <body className={`${inter.variable} ${jetbrains.variable} font-sans antialiased text-white bg-[#0a0a0c] leading-relaxed`}>
         <GridBackground />
         <Providers>
-          <ClientOnlyFloatingDock /> {/* Render the wrapper component */}
+          <ClientOnlyFloatingDock /> {/* Render the FloatingDock wrapper */}
+          <ClientOnlySocialMediaDock /> {/* Render the SocialMediaDock wrapper */}
           <main className="min-h-screen relative z-10">
              {children}
           </main>

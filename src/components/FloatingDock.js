@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { FaHome, FaUser, FaBook, FaGithub } from 'react-icons/fa';
+import { FaHome, FaArrowLeft } from 'react-icons/fa'; // Added FaArrowLeft, removed FaUser, FaBook, FaGithub
 import { useLanguage } from '../context/LanguageContext';
 import { useState, useEffect } from 'react';
 
@@ -24,7 +24,7 @@ const Tooltip = ({ children, text }) => {
 
 export default function FloatingDock() {
   const pathname = usePathname();
-  const { language, toggleLanguage } = useLanguage();
+  const { language, toggleLanguage, t } = useLanguage(); // Destructure 't' for translations
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -32,15 +32,17 @@ export default function FloatingDock() {
   }, []);
 
   const handleLanguageToggle = () => {
-    // This logic should ideally be similar to the previous LanguageSwitch
-    // but simplified for the minimalist text slider.
-    // For now, it will just toggle the language context.
     toggleLanguage();
   };
 
   if (!mounted) return null;
 
-  const isEn = language === 'en'; // Directly use the language context
+  const isEn = language === 'en';
+
+  // Determine if we are on a blog post page
+  const isBlogPost = pathname.includes('/blog/') || pathname.includes('/en/blog/');
+  // Determine the correct path for "Back to Blog"
+  const backToBlogPath = pathname.startsWith('/en/') ? '/en/blog' : '/blog';
 
   return (
     <div
@@ -56,29 +58,18 @@ export default function FloatingDock() {
         </Link>
       </Tooltip>
 
-      {/* User Icon (Bio) */}
-      <Tooltip text={isEn ? 'About Me' : 'Προσωπικά'}>
-        <Link href="/bio" className="hover:scale-110 transition-transform duration-200" aria-label={isEn ? 'About Me' : 'Προσωπικά'}>
-          <FaUser size={20} className={pathname === '/bio' ? 'text-cyan-400' : 'text-gray-400 hover:text-white'} />
-        </Link>
-      </Tooltip>
+      {/* Conditional Back to Blog Link */}
+      {isBlogPost && (
+        <Tooltip text={isEn ? 'Back to Blog' : 'Πίσω στο Ιστολόγιο'}>
+          <Link href={backToBlogPath} className="hover:scale-110 transition-transform duration-200 flex items-center gap-2" aria-label={isEn ? 'Back to Blog' : 'Πίσω στο Ιστολόγιο'}>
+            <FaArrowLeft size={20} className="text-gray-400 hover:text-white" />
+            <span className="font-medium text-gray-400 hover:text-white text-sm">{isEn ? 'Blog' : 'Ιστολόγιο'}</span>
+          </Link>
+        </Tooltip>
+      )}
 
-      {/* Book Icon (Blog) */}
-      <Tooltip text={isEn ? 'Blog' : 'Ιστολόγιο'}>
-        <Link href="/blog" className="hover:scale-110 transition-transform duration-200" aria-label={isEn ? 'Blog' : 'Ιστολόγιο'}>
-          <FaBook size={20} className={pathname.startsWith('/blog') || pathname.startsWith('/en/blog') ? 'text-cyan-400' : 'text-gray-400 hover:text-white'} />
-        </Link>
-      </Tooltip>
-
-      {/* Github Icon */}
-      <Tooltip text="GitHub">
-        <a href="https://github.com/christoskataxenos" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform duration-200" aria-label="GitHub">
-          <FaGithub size={20} className="text-gray-400 hover:text-white" />
-        </a>
-      </Tooltip>
-
-      {/* Separator */}
-      <div className="h-4 w-[1px] bg-gray-600"></div>
+      {/* Separator (only if Back to Blog is present) */}
+      {isBlogPost && <div className="h-4 w-[1px] bg-gray-600"></div>}
 
       {/* Language Toggle */}
       <div 
