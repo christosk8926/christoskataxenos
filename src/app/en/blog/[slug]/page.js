@@ -2,6 +2,7 @@ import { getPostData, getSortedPostsData } from '../../../../lib/posts';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import Link from 'next/link';
 import rehypePrettyCode from 'rehype-pretty-code';
+import BackButton from '../../../../components/BackButton';
 
 export async function generateStaticParams() {
   const posts = getSortedPostsData('en');
@@ -44,29 +45,7 @@ export default async function Post({ params }) {
 
   return (
     <div className="mx-auto max-w-3xl py-8 pt-24 px-6">
-      <div className="mb-8">
-        <Link 
-            href="/en/blog" 
-            className="group inline-flex items-center gap-2 text-sm font-medium text-gray-400 hover:text-white transition-colors w-max"
-        >
-            <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            width="16" 
-            height="16" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            stroke="currentColor" 
-            strokeWidth="2" 
-            strokeLinecap="round" 
-            strokeLinejoin="round" 
-            className="transition-transform group-hover:-translate-x-1"
-            >
-            <path d="M19 12H5"></path>
-            <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
-            Back to Blog
-        </Link>
-      </div>
+      <BackButton href="/en/blog" label="Back to Blog" />
 
       <article className="prose prose-invert max-w-none font-sans leading-relaxed space-y-4">
           <h1 className="text-4xl font-bold text-white mb-8">{postData.title}</h1>
