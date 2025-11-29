@@ -101,6 +101,11 @@ export default function BioSection() {
                   </ul>
                 </div>
               </li>
+              <li className="border-l-2 border-gray-700 pl-4 group-hover:border-purple-500/50 transition-colors duration-300">
+                <h4 className="text-white font-semibold">Security Systems Technician</h4>
+                <p className="text-sm text-cyan-300">2014 - 2018</p>
+                <p className="text-xs text-gray-400 mt-1">Installation, maintenance, fault diagnosis, and technical support for alarm and security camera systems.</p>
+              </li>
             </ul>
           </div>
         </div>
