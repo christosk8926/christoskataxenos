@@ -9,77 +9,12 @@ export default function BioSection() {
   return (
     <section className="relative w-full min-h-screen flex items-center justify-center p-4 lg:p-12 overflow-hidden font-sans">
       
-      {/* --- Background Grid is assumed global, but we add a subtle overlay here if needed --- */}
-      
-      {/* --- Circuit Board SVG Overlay (Desktop Only) --- */}
-      <div className="absolute inset-0 hidden lg:block pointer-events-none z-0">
-        <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-          <defs>
-            <linearGradient id="circuit-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#a855f7" stopOpacity="0.2" />
-              <stop offset="50%" stopColor="#06b6d4" stopOpacity="0.8" />
-              <stop offset="100%" stopColor="#a855f7" stopOpacity="0.2" />
-            </linearGradient>
-            <filter id="circuit-glow">
-              <feGaussianBlur stdDeviation="0.5" result="coloredBlur"/>
-              <feMerge>
-                <feMergeNode in="coloredBlur"/>
-                <feMergeNode in="SourceGraphic"/>
-              </feMerge>
-            </filter>
-          </defs>
-
-          {/* Left Trace: Center Hex (50,50) to Left Card (~20,50) */}
-          <path 
-            d="M 42 50 L 28 50" 
-            stroke="url(#circuit-gradient)" 
-            strokeWidth="0.2" 
-            fill="none"
-            filter="url(#circuit-glow)"
-            className="opacity-80"
-          />
-          <circle cx="28" cy="50" r="0.4" fill="#06b6d4" filter="url(#circuit-glow)" />
-
-          {/* Right Trace: Center Hex (50,50) to Right Split */}
-          <path 
-            d="M 58 50 L 72 50" 
-            stroke="url(#circuit-gradient)" 
-            strokeWidth="0.2" 
-            fill="none"
-            filter="url(#circuit-glow)"
-            className="opacity-80"
-          />
-          
-          {/* Right Branch: Split to Top Right (Education) */}
-          <path 
-            d="M 72 50 L 72 25 L 75 25" 
-            stroke="url(#circuit-gradient)" 
-            strokeWidth="0.2" 
-            fill="none"
-            filter="url(#circuit-glow)"
-            className="opacity-80"
-          />
-          <circle cx="75" cy="25" r="0.4" fill="#06b6d4" filter="url(#circuit-glow)" />
-
-          {/* Right Branch: Split to Bottom Right (Skills) */}
-          <path 
-            d="M 72 50 L 72 75 L 75 75" 
-            stroke="url(#circuit-gradient)" 
-            strokeWidth="0.2" 
-            fill="none"
-            filter="url(#circuit-glow)"
-            className="opacity-80"
-          />
-          <circle cx="75" cy="75" r="0.4" fill="#06b6d4" filter="url(#circuit-glow)" />
-        </svg>
-      </div>
-
       {/* --- Main Grid Layout --- */}
       <div className="relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-12 w-full max-w-7xl items-start pt-20">
         
         {/* --- LEFT COLUMN: Professional Experience --- */}
         <div className="order-2 lg:order-1 flex flex-col gap-6">
-          <div className="group relative p-6 bg-[#0a0a0c]/80 backdrop-blur-md border border-purple-500/30 rounded-xl shadow-[0_0_15px_rgba(168,85,247,0.2)] transition-all duration-500 hover:shadow-[0_0_25px_rgba(6,182,212,0.4)] hover:border-cyan-400/50 h-full">
+          <div className="group relative p-6 bg-[#0a0a0c]/80 backdrop-blur-md border border-purple-500/30 rounded-xl shadow-[0_0_15px_rgba(168,85,247,0.2)] transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-[0_0_30px_rgba(34,211,238,0.4)] hover:border-cyan-400/50 cursor-pointer">
             {/* Corner Accent */}
             <div className="absolute -top-1 -left-1 w-4 h-4 border-t-2 border-l-2 border-cyan-400 rounded-tl-md" />
             <div className="absolute -bottom-1 -right-1 w-4 h-4 border-b-2 border-r-2 border-cyan-400 rounded-br-md" />
@@ -128,7 +63,7 @@ export default function BioSection() {
           {/* Glowing Ring Behind */}
           <div className="absolute w-64 h-64 bg-purple-600/20 rounded-full blur-3xl animate-pulse" />
           
-          <div className="relative w-56 h-56 sm:w-64 sm:h-64">
+          <div className="relative w-56 h-56 sm:w-64 sm:h-64 transition-all duration-300 ease-in-out hover:scale-105 cursor-pointer">
             {/* Hexagon Border Container */}
             <div 
               className="absolute inset-0 bg-gradient-to-br from-cyan-500 via-purple-500 to-pink-500 p-[2px]"
@@ -155,7 +90,7 @@ export default function BioSection() {
         <div className="order-3 lg:order-3 flex flex-col gap-6">
           
           {/* Education Card */}
-          <div className="group relative p-6 bg-[#0a0a0c]/80 backdrop-blur-md border border-purple-500/30 rounded-xl shadow-[0_0_15px_rgba(168,85,247,0.2)] transition-all duration-500 hover:shadow-[0_0_25px_rgba(6,182,212,0.4)] hover:border-cyan-400/50 lg:before:content-[''] lg:before:absolute lg:before:top-1/2 lg:before:-left-8 lg:before:w-8 lg:before:h-[2px] lg:before:bg-gradient-to-r lg:before:from-cyan-500/50 lg:before:to-purple-500/50 lg:before:shadow-[0_0_8px_rgba(6,182,212,0.6)]">
+          <div className="group relative p-6 bg-[#0a0a0c]/80 backdrop-blur-md border border-purple-500/30 rounded-xl shadow-[0_0_15px_rgba(168,85,247,0.2)] transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-[0_0_30px_rgba(34,211,238,0.4)] hover:border-cyan-400/50 cursor-pointer">
              {/* Corner Accent */}
              <div className="absolute -top-1 -right-1 w-4 h-4 border-t-2 border-r-2 border-cyan-400 rounded-tr-md" />
             
@@ -182,7 +117,7 @@ export default function BioSection() {
           </div>
 
           {/* Skills Card */}
-          <div className="group relative p-6 bg-[#0a0a0c]/80 backdrop-blur-md border border-purple-500/30 rounded-xl shadow-[0_0_15px_rgba(168,85,247,0.2)] transition-all duration-500 hover:shadow-[0_0_25px_rgba(6,182,212,0.4)] hover:border-cyan-400/50">
+          <div className="group relative p-6 bg-[#0a0a0c]/80 backdrop-blur-md border border-purple-500/30 rounded-xl shadow-[0_0_15px_rgba(168,85,247,0.2)] transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-[0_0_30px_rgba(34,211,238,0.4)] hover:border-cyan-400/50 cursor-pointer">
              {/* Corner Accent */}
              <div className="absolute -bottom-1 -left-1 w-4 h-4 border-b-2 border-l-2 border-cyan-400 rounded-bl-md" />
             
@@ -229,4 +164,4 @@ export default function BioSection() {
       </div>
     </section>
   );
-}  
+}
