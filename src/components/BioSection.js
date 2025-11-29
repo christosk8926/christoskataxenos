@@ -65,39 +65,39 @@ export default function BioSection() {
       </div>
 
       {/* --- Main Grid Layout --- */}
-      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 w-full max-w-6xl items-center">
+      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-8 w-full max-w-7xl items-start pt-20">
         
-        {/* --- LEFT CARD: Professional Experience --- */}
-        <div className="lg:col-span-4 order-2 lg:order-1">
-          <div className="group relative p-6 bg-[#0a0a0c]/80 backdrop-blur-md border border-purple-500/30 rounded-xl shadow-[0_0_15px_rgba(168,85,247,0.2)] hover:shadow-[0_0_25px_rgba(6,182,212,0.4)] hover:border-cyan-400/50 transition-all duration-500">
+        {/* --- LEFT COLUMN: Professional Experience --- */}
+        <div className="order-2 lg:order-1 flex flex-col gap-6">
+          <div className="group relative p-6 bg-[#0a0a0c]/80 backdrop-blur-md border border-purple-500/30 rounded-xl shadow-[0_0_15px_rgba(168,85,247,0.2)] transition-all duration-500 hover:shadow-[0_0_25px_rgba(6,182,212,0.4)] hover:border-cyan-400/50 h-full">
             {/* Corner Accent */}
             <div className="absolute -top-1 -left-1 w-4 h-4 border-t-2 border-l-2 border-cyan-400 rounded-tl-md" />
             <div className="absolute -bottom-1 -right-1 w-4 h-4 border-b-2 border-r-2 border-cyan-400 rounded-br-md" />
 
-            <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400 mb-4 flex items-center gap-2">
+            <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400 mb-6 flex items-center gap-2">
               <span className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse" />
               {t.experienceTitle}
             </h3>
             
-            <ul className="space-y-4">
+            <ul className="space-y-6">
               <li className="border-l-2 border-purple-500/50 pl-4">
-                <h4 className="text-white font-semibold">{t.roles.technician.title}</h4>
-                <p className="text-sm text-cyan-300">{t.roles.technician.dateLocation}</p>
-                <div className="text-xs text-gray-400 mt-1 space-y-1">
+                <h4 className="text-white font-semibold text-lg">{t.roles.technician.title}</h4>
+                <p className="text-sm text-cyan-400 mb-2">{t.roles.technician.dateLocation}</p>
+                <div className="text-sm text-gray-300 space-y-2">
                   <p className="font-semibold text-white">{t.roles.technician.responsibilities}</p>
-                  <ul className="list-disc list-inside ml-2">
+                  <ul className="list-disc list-inside ml-2 text-gray-400">
                     {t.roles.technician.responsibilitiesList.map((item, index) => (
                       <li key={index}>{item}</li>
                     ))}
                   </ul>
                   <p className="font-semibold text-white mt-2">{t.roles.technician.skillsLabel}</p>
-                  <ul className="list-disc list-inside ml-2">
+                  <ul className="list-disc list-inside ml-2 text-gray-400">
                     {t.roles.technician.skillsList.map((item, index) => (
                       <li key={index}>{item}</li>
                     ))}
                   </ul>
                   <p className="font-semibold text-white mt-2">{t.roles.technician.achievementsLabel}</p>
-                  <ul className="list-disc list-inside ml-2">
+                  <ul className="list-disc list-inside ml-2 text-gray-400">
                     {t.roles.technician.achievementsList.map((item, index) => (
                       <li key={index}>{item}</li>
                     ))}
@@ -105,16 +105,16 @@ export default function BioSection() {
                 </div>
               </li>
               <li className="border-l-2 border-gray-700 pl-4 group-hover:border-purple-500/50 transition-colors duration-300">
-                <h4 className="text-white font-semibold">{t.roles.security.title}</h4>
-                <p className="text-sm text-cyan-300">{t.roles.security.date}</p>
-                <p className="text-xs text-gray-400 mt-1">{t.roles.security.description}</p>
+                <h4 className="text-white font-semibold text-lg">{t.roles.security.title}</h4>
+                <p className="text-sm text-cyan-400 mb-2">{t.roles.security.date}</p>
+                <p className="text-sm text-gray-300">{t.roles.security.description}</p>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* --- CENTER: Portrait (Hexagon) --- */}
-        <div className="lg:col-span-4 order-1 lg:order-2 flex justify-center relative">
+        {/* --- CENTER COLUMN: Avatar (Vertically Centered on Desktop) --- */}
+        <div className="order-1 lg:order-2 flex justify-center relative lg:self-center py-8 lg:py-0">
           {/* Glowing Ring Behind */}
           <div className="absolute w-64 h-64 bg-purple-600/20 rounded-full blur-3xl animate-pulse" />
           
@@ -142,82 +142,86 @@ export default function BioSection() {
         </div>
 
         {/* --- RIGHT COLUMN: Education & Skills --- */}
-        <div className="lg:col-span-4 order-3 lg:order-3 flex flex-col gap-6">
+        <div className="order-3 lg:order-3 flex flex-col gap-6">
           
-          {/* TOP RIGHT: Education */}
-          <div className="group relative p-6 bg-[#0a0a0c]/80 backdrop-blur-md border border-purple-500/30 rounded-xl shadow-[0_0_15px_rgba(168,85,247,0.2)] hover:shadow-[0_0_25px_rgba(6,182,212,0.4)] hover:border-cyan-400/50 transition-all duration-500">
+          {/* Education Card */}
+          <div className="group relative p-6 bg-[#0a0a0c]/80 backdrop-blur-md border border-purple-500/30 rounded-xl shadow-[0_0_15px_rgba(168,85,247,0.2)] transition-all duration-500 hover:shadow-[0_0_25px_rgba(6,182,212,0.4)] hover:border-cyan-400/50">
              {/* Corner Accent */}
              <div className="absolute -top-1 -right-1 w-4 h-4 border-t-2 border-r-2 border-cyan-400 rounded-tr-md" />
             
-            <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400 mb-4 flex items-center gap-2">
+            <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400 mb-6 flex items-center gap-2">
               <span className="w-2 h-2 bg-purple-400 rounded-full" />
               {t.educationTitle}
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-4">
                <li className="flex justify-between items-baseline border-b border-white/5 pb-2">
-                 <span className="text-white font-medium">{t.education.university}</span>
-                 <span className="text-xs text-gray-400 font-mono">2025</span>
+                 <div>
+                    <span className="text-white font-medium block">{t.education.university}</span>
+                    <span className="text-sm text-gray-300 italic">{t.education.degree}</span>
+                 </div>
+                 <span className="text-xs text-cyan-400 font-mono">2025</span>
                </li>
-               <li className="text-sm text-gray-400 italic">{t.education.degree}</li>
-               <li className="flex justify-between items-baseline border-b border-white/5 pb-2 mt-3">
-                 <span className="text-white font-medium">{t.education.iek}</span>
-                 <span className="text-xs text-gray-400 font-mono">2008-2010</span>
+               <li className="flex justify-between items-baseline border-b border-white/5 pb-2">
+                 <div>
+                    <span className="text-white font-medium block">{t.education.iek}</span>
+                    <span className="text-sm text-gray-300 italic">{t.education.iekDegree}</span>
+                 </div>
+                 <span className="text-xs text-cyan-400 font-mono">2008-2010</span>
                </li>
-               <li className="text-sm text-gray-400 italic">{t.education.iekDegree}</li>
             </ul>
           </div>
 
-          {/* BOTTOM RIGHT: Skills */}
-          <div className="group relative p-6 bg-[#0a0a0c]/80 backdrop-blur-md border border-purple-500/30 rounded-xl shadow-[0_0_15px_rgba(168,85,247,0.2)] hover:shadow-[0_0_25px_rgba(6,182,212,0.4)] hover:border-cyan-400/50 transition-all duration-500">
+          {/* Skills Card */}
+          <div className="group relative p-6 bg-[#0a0a0c]/80 backdrop-blur-md border border-purple-500/30 rounded-xl shadow-[0_0_15px_rgba(168,85,247,0.2)] transition-all duration-500 hover:shadow-[0_0_25px_rgba(6,182,212,0.4)] hover:border-cyan-400/50">
              {/* Corner Accent */}
              <div className="absolute -bottom-1 -left-1 w-4 h-4 border-b-2 border-l-2 border-cyan-400 rounded-bl-md" />
             
-            <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400 mb-4 flex items-center gap-2">
+            <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400 mb-6 flex items-center gap-2">
               <span className="w-2 h-2 bg-cyan-400 rounded-full" />
               {t.skillsTitle}
             </h3>
             
-            <div className="space-y-3">
+            <div className="space-y-4">
               {/* Skill 1 */}
               <div>
-                <div className="flex justify-between text-xs font-mono text-gray-400 mb-1">
+                <div className="flex justify-between text-xs font-mono text-gray-300 mb-1.5">
                   <span>{t.skillLabels.react}</span>
-                  <span>15%</span>
+                  <span className="text-cyan-400">15%</span>
                 </div>
-                <div className="w-full h-1.5 bg-gray-800 rounded-full overflow-hidden">
+                <div className="w-full h-2 bg-gray-800/50 rounded-full overflow-hidden border border-white/5">
                   <div className="h-full bg-gradient-to-r from-purple-600 to-cyan-500 w-[15%] shadow-[0_0_10px_rgba(6,182,212,0.5)]" />
                 </div>
               </div>
               
               {/* Skill 2 */}
               <div>
-                <div className="flex justify-between text-xs font-mono text-gray-400 mb-1">
+                <div className="flex justify-between text-xs font-mono text-gray-300 mb-1.5">
                   <span>{t.skillLabels.python}</span>
-                  <span>40%</span>
+                  <span className="text-cyan-400">40%</span>
                 </div>
-                <div className="w-full h-1.5 bg-gray-800 rounded-full overflow-hidden">
+                <div className="w-full h-2 bg-gray-800/50 rounded-full overflow-hidden border border-white/5">
                   <div className="h-full bg-gradient-to-r from-purple-600 to-cyan-500 w-[40%] shadow-[0_0_10px_rgba(6,182,212,0.5)]" />
                 </div>
               </div>
 
               {/* Skill 3 */}
               <div>
-                <div className="flex justify-between text-xs font-mono text-gray-400 mb-1">
+                <div className="flex justify-between text-xs font-mono text-gray-300 mb-1.5">
                   <span>{t.skillLabels.css}</span>
-                  <span>30%</span>
+                  <span className="text-cyan-400">30%</span>
                 </div>
-                <div className="w-full h-1.5 bg-gray-800 rounded-full overflow-hidden">
+                <div className="w-full h-2 bg-gray-800/50 rounded-full overflow-hidden border border-white/5">
                   <div className="h-full bg-gradient-to-r from-purple-600 to-cyan-500 w-[30%] shadow-[0_0_10px_rgba(6,182,212,0.5)]" />
                 </div>
               </div>
               
               {/* Skill 4: Networking */}
               <div>
-                <div className="flex justify-between text-xs font-mono text-gray-400 mb-1">
+                <div className="flex justify-between text-xs font-mono text-gray-300 mb-1.5">
                   <span>{t.skillLabels.networking}</span>
-                  <span>85%</span>
+                  <span className="text-cyan-400">85%</span>
                 </div>
-                <div className="w-full h-1.5 bg-gray-800 rounded-full overflow-hidden">
+                <div className="w-full h-2 bg-gray-800/50 rounded-full overflow-hidden border border-white/5">
                   <div className="h-full bg-gradient-to-r from-purple-600 to-cyan-500 w-[85%] shadow-[0_0_10px_rgba(6,182,212,0.5)]" />
                 </div>
               </div>
