@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
       {/* Font configuration */}
       <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased text-white bg-[#0a0a0c]`}>
         <GridBackground />
-        <Providers>
+        <Providers defaultLang="el">
           <Header />
           <main className="min-h-screen relative z-10">
              {children}

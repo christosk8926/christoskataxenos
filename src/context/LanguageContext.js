@@ -173,9 +173,9 @@ const translations = {
   }
 };
 
-export function LanguageProvider({ children }) {
-  // Default to English
-  const [language, setLanguage] = useState('en');
+export function LanguageProvider({ children, defaultLang }) {
+  // Default to English, or use defaultLang prop
+  const [language, setLanguage] = useState(defaultLang || 'en');
 
   const toggleLanguage = () => {
     setLanguage((prev) => (prev === 'en' ? 'el' : 'en'));
