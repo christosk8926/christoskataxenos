@@ -3,7 +3,7 @@ import Script from "next/script";
 import "./globals.css";
 import { Providers } from "../components/Providers";
 import GridBackground from "../components/GridBackground";
-import FloatingDock from "../components/FloatingDock"; // Import FloatingDock
+import ClientOnlyFloatingDock from "../components/ClientOnlyFloatingDock"; // Import the new wrapper component
 
 const inter = Inter({
   variable: "--font-inter",
@@ -29,8 +29,8 @@ export default function RootLayout({ children }) {
       {/* Font configuration */}
       <body className={`${inter.variable} ${jetbrains.variable} font-sans antialiased text-white bg-[#0a0a0c] leading-relaxed`}>
         <GridBackground />
-        <Providers> {/* Removed defaultLang prop */}
-          <FloatingDock /> {/* Render FloatingDock */}
+        <Providers>
+          <ClientOnlyFloatingDock /> {/* Render the wrapper component */}
           <main className="min-h-screen relative z-10">
              {children}
           </main>
