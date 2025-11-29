@@ -1,7 +1,5 @@
 /* --- 1. TAILWIND DIRECTIVES --- */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 /* --- 2. CUSTOM CSS --- */
 
