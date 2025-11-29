@@ -33,6 +33,15 @@ export default function BlogCard({ slug, date, title, description, basePath = '/
     setOpacity(0);
   };
 
+  const getReadTime = (desc) => {
+    const wordsPerMinute = 200; // Average reading speed
+    const wordCount = desc.split(/\s+/).filter(Boolean).length;
+    const readTime = Math.ceil(wordCount / wordsPerMinute);
+    return `${readTime > 0 ? readTime : 1} min read`; // Ensure at least 1 min read
+  };
+
+  const estimatedReadTime = getReadTime(description);
+
   return (
     <Link
       href={`${basePath}/${slug}`}
@@ -60,9 +69,12 @@ export default function BlogCard({ slug, date, title, description, basePath = '/
       />
 
       <div className="card-content">
-        <time className="date">
-          {date}
-        </time>
+        <div className="flex items-center text-xs text-gray-500 font-mono mb-3">
+          <time>{date}</time>
+          <span className="mx-2">|</span>
+          <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <span>{estimatedReadTime}</span>
+        </div>
 
         <h2 className="title">
           {title}
