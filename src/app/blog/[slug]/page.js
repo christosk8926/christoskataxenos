@@ -43,9 +43,9 @@ export default async function Post({ params }) {
   const postData = await getPostData(resolvedParams.slug);
 
   return (
-    <div className="mx-auto max-w-3xl py-8 pt-24">
+    <div className="mx-auto max-w-3xl py-8 pt-24 px-6">
       <div className="mb-8">
-        <Link 
+        <Link  
             href="/blog" 
             className="group inline-flex items-center gap-2 text-sm font-medium text-gray-400 hover:text-white transition-colors w-max"
         >

@@ -43,7 +43,7 @@ export default async function Post({ params }) {
   const postData = await getPostData(resolvedParams.slug, 'en');
 
   return (
-    <div className="mx-auto max-w-3xl py-8 pt-24">
+    <div className="mx-auto max-w-3xl py-8 pt-24 px-6">
       <div className="mb-8">
         <Link 
             href="/en/blog" 
