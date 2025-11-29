@@ -80,8 +80,8 @@ export default function BlogCard({ slug, date, title, description, basePath = '/
           display: block;
           width: 100%;
           background: rgba(20, 20, 23, 0.4);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 1rem;
+          border: 1px solid #374151;
+          border-radius: 0.75rem;
           text-decoration: none !important;
           overflow: hidden;
           padding-top: 32px;
@@ -95,7 +95,7 @@ export default function BlogCard({ slug, date, title, description, basePath = '/
         :global(.blog-card:hover) {
             transform: translateY(-4px) scale(1.01);
             background: rgba(20, 20, 23, 0.6);
-            border-color: rgba(127, 90, 240, 0.8);
+            border-color: #a855f7;
             box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5),
                         0 0 20px -5px rgba(127, 90, 240, 0.2);
         }
@@ -141,7 +141,7 @@ export default function BlogCard({ slug, date, title, description, basePath = '/
         }
 
         .title {
-          font-family: var(--font-mono);
+          font-family: var(--font-sans);
           font-size: 1.5rem;
           font-weight: 700;
           color: #fffffe !important;

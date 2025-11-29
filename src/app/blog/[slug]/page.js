@@ -43,42 +43,46 @@ export default async function Post({ params }) {
   const postData = await getPostData(resolvedParams.slug);
 
   return (
-    <div className="prose prose-invert mx-auto max-w-3xl py-4 pt-20 sm:py-6 sm:pt-20 lg:py-8 lg:pt-20">
-      <Link 
-        href="/blog" 
-        className="group inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
-      >
-        <svg 
-          xmlns="http://www.w3.org/2000/svg" 
-          width="16" 
-          height="16" 
-          viewBox="0 0 24 24" 
-          fill="none" 
-          stroke="currentColor" 
-          strokeWidth="2" 
-          strokeLinecap="round" 
-          strokeLinejoin="round" 
-          className="transition-transform group-hover:-translate-x-1"
+    <div className="mx-auto max-w-3xl py-8 pt-24">
+      <div className="mb-8">
+        <Link 
+            href="/blog" 
+            className="group inline-flex items-center gap-2 text-sm font-medium text-gray-400 hover:text-white transition-colors w-max"
         >
-          <path d="M19 12H5"></path>
-          <polyline points="12 19 5 12 12 5"></polyline>
-        </svg>
-        Back to Blog
-      </Link>
+            <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            width="16" 
+            height="16" 
+            viewBox="0 0 24 24" 
+            fill="none" 
+            stroke="currentColor" 
+            strokeWidth="2" 
+            strokeLinecap="round" 
+            strokeLinejoin="round" 
+            className="transition-transform group-hover:-translate-x-1"
+            >
+            <path d="M19 12H5"></path>
+            <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Back to Blog
+        </Link>
+      </div>
 
-      <h1 className="mt-8 text-4xl font-bold">{postData.title}</h1>
-      <div className="text-gray-400">{postData.date}</div>
-        
-      <MDXRemote 
-        source={postData.content}
-        options={{
-          mdxOptions: {
-            rehypePlugins: [
-              [rehypePrettyCode, prettyCodeOptions],
-            ],
-          },
-        }}
-      />
+      <article className="prose prose-invert max-w-none font-sans leading-relaxed space-y-4">
+          <h1 className="text-4xl font-bold text-white mb-8">{postData.title}</h1>
+          <div className="text-gray-400 mb-8 -mt-6">{postData.date}</div>
+            
+          <MDXRemote 
+            source={postData.content}
+            options={{
+              mdxOptions: {
+                rehypePlugins: [
+                  [rehypePrettyCode, prettyCodeOptions],
+                ],
+              },
+            }}
+          />
+      </article>
     </div>
   );
 }
