@@ -31,7 +31,7 @@ export default function Home() {
             <div className="card-icon">
               <UserIcon />
             </div>
-            <span className="card-title">{t.bioTitle}</span>
+            <span className="card-title font-mono uppercase tracking-widest">{t.bioTitle}</span>
           </SpotlightCard>
           <p className="code-caption">{'//'} {t.bioCaption}</p>
         </div>
@@ -45,7 +45,7 @@ export default function Home() {
             <div className="card-icon">
               <CodeIcon />
             </div>
-            <span className="card-title">{t.blogTitle}</span>
+            <span className="card-title font-mono uppercase tracking-widest">{t.blogTitle}</span>
           </SpotlightCard>
           <p className="code-caption">{'//'} {t.blogCaption}</p>
         </div>
@@ -59,7 +59,7 @@ export default function Home() {
             <div className="card-icon">
               <CameraIcon />
             </div>
-            <span className="card-title">{t.photoTitle}</span>
+            <span className="card-title font-mono uppercase tracking-widest">{t.photoTitle}</span>
           </SpotlightCard>
           <p className="code-caption">{'//'} {t.photoCaption}</p>
         </div>

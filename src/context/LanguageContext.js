@@ -174,8 +174,25 @@ const translations = {
 };
 
 export function LanguageProvider({ children }) {
-  // Default to English if no language is set
+  // Initialize with 'en' to avoid hydration mismatch,
+  // then update from localStorage in useEffect
   const [language, setLanguage] = useState('en');
+
+  // Effect to load language preference from localStorage on mount
+  useEffect(() => {
+    const storedLang = localStorage.getItem('languagePreference');
+    if (storedLang && (storedLang === 'en' || storedLang === 'el')) {
+      setLanguage(storedLang);
+    } else {
+      // Default to 'en' if no preference or invalid preference found
+      setLanguage('en');
+    }
+  }, []); // Empty dependency array means this runs once on mount
+
+  // Effect to save language preference to localStorage whenever language changes
+  useEffect(() => {
+    localStorage.setItem('languagePreference', language);
+  }, [language]); // Runs whenever 'language' state changes
 
   const toggleLanguage = () => {
     setLanguage((prev) => (prev === 'en' ? 'el' : 'en'));

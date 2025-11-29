@@ -41,80 +41,25 @@ export default function SpotlightCard({ children, href, className = "" }) {
       onBlur={handleBlur}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className={`spotlight-card ${className}`}
+      className={`
+        relative flex flex-col items-center justify-center gap-6 p-6
+        w-full md:w-[300px] h-[400px]
+        bg-gray-900/50 backdrop-blur-md border border-cyan-500/30 rounded-xl
+        text-decoration-none overflow-hidden transition-all duration-300 ease-in-out
+        hover:scale-105 shadow-lg shadow-[0_0_20px_rgba(34,211,238,0.3)] ${className}
+      `}
     >
       <div
-        className="spotlight-overlay"
+        className="pointer-events-none absolute inset-0 transition-opacity duration-300 z-10"
         style={{
           opacity,
           background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(127, 90, 240, 0.15), transparent 40%)`,
         }}
       />
-      <div 
-        className="spotlight-border"
-        style={{
-            opacity,
-            background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(127, 90, 240, 0.6), transparent 40%)`,
-        }}
-      />
-      <div className="card-content">{children}</div>
-
-      <style jsx>{`
-        .spotlight-card {
-          position: relative;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          gap: 1.5rem;
-          width: 300px;
-          height: 400px;
-          background: rgba(20, 20, 23, 0.6); /* Slightly darker base */
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 1rem;
-          text-decoration: none;
-          overflow: hidden;
-          transition: transform 0.3s ease;
-        }
-
-        .spotlight-card:hover {
-            transform: scale(1.02);
-        }
-
-        /* The inner glow content */
-        .spotlight-overlay {
-          pointer-events: none;
-          position: absolute;
-          inset: 0;
-          transition: opacity 0.3s ease;
-          z-index: 1;
-        }
-
-        /* The glowing border effect */
-        .spotlight-border {
-            pointer-events: none;
-            position: absolute;
-            inset: -1px; /* Hug the border */
-            border-radius: inherit;
-            padding: 1px; /* Thickness of the border glow */
-            background: radial-gradient(600px circle at var(--x) var(--y), rgba(127, 90, 240, 0.6), transparent 40%); 
-            z-index: 2;
-            mask: 
-                linear-gradient(#fff 0 0) content-box, 
-                linear-gradient(#fff 0 0);
-            mask-composite: xor;
-            mask-composite: exclude;
-        }
-
-        .card-content {
-          position: relative;
-          z-index: 10;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 1.5rem;
-        }
-      `}</style>
+      
+      <div className="relative z-10 flex flex-col items-center gap-6">
+        {children}
+      </div>
     </a>
   );
 }
