@@ -11,75 +11,12 @@ export default function BioSection() {
       
       {/* --- Background Grid is assumed global, but we add a subtle overlay here if needed --- */}
       
-      {/* --- Circuit Board SVG Wires (Desktop Only) --- */}
-      <div className="absolute inset-0 hidden lg:block pointer-events-none z-0">
-        <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-          <defs>
-            <linearGradient id="wire-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#a855f7" stopOpacity="0" />
-              <stop offset="50%" stopColor="#06b6d4" stopOpacity="1" />
-              <stop offset="100%" stopColor="#a855f7" stopOpacity="0" />
-            </linearGradient>
-            <filter id="glow">
-              <feGaussianBlur stdDeviation="0.5" result="coloredBlur"/>
-              <feMerge>
-                <feMergeNode in="coloredBlur"/>
-                <feMergeNode in="SourceGraphic"/>
-              </feMerge>
-            </filter>
-          </defs>
-          
-          {/* Left Trace: Center to Experience Card */}
-          <path 
-            d="M 50 50 L 15 50" 
-            stroke="url(#wire-gradient)" 
-            strokeWidth="0.3" 
-            fill="none"
-            filter="url(#glow)"
-            className="opacity-80"
-          />
-          <circle cx="15" cy="50" r="0.5" fill="#06b6d4" filter="url(#glow)" />
-
-          {/* Right Trace: Center to Split Point */}
-          <path 
-            d="M 50 50 L 80 50" 
-            stroke="url(#wire-gradient)" 
-            strokeWidth="0.3" 
-            fill="none"
-            filter="url(#glow)"
-            className="opacity-80"
-          />
-
-          {/* Right Top Branch: Split to Education Card */}
-          <path 
-            d="M 80 50 L 80 20 L 90 20" 
-            stroke="url(#wire-gradient)" 
-            strokeWidth="0.3" 
-            fill="none"
-            filter="url(#glow)"
-            className="opacity-80"
-          />
-          <circle cx="90" cy="20" r="0.5" fill="#06b6d4" filter="url(#glow)" />
-
-          {/* Right Bottom Branch: Split to Skills Card */}
-          <path 
-            d="M 80 50 L 80 80 L 90 80" 
-            stroke="url(#wire-gradient)" 
-            strokeWidth="0.3" 
-            fill="none"
-            filter="url(#glow)"
-            className="opacity-80"
-          />
-          <circle cx="90" cy="80" r="0.5" fill="#06b6d4" filter="url(#glow)" />
-        </svg>
-      </div>
-
       {/* --- Main Grid Layout --- */}
       <div className="relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-8 w-full max-w-7xl items-start pt-20">
         
         {/* --- LEFT COLUMN: Professional Experience --- */}
         <div className="order-2 lg:order-1 flex flex-col gap-6">
-          <div className="group relative p-6 bg-[#0a0a0c]/80 backdrop-blur-md border border-purple-500/30 rounded-xl shadow-[0_0_15px_rgba(168,85,247,0.2)] transition-all duration-500 hover:shadow-[0_0_25px_rgba(6,182,212,0.4)] hover:border-cyan-400/50 h-full">
+          <div className="group relative p-6 bg-[#0a0a0c]/80 backdrop-blur-md border border-purple-500/30 rounded-xl shadow-[0_0_15px_rgba(168,85,247,0.2)] transition-all duration-500 hover:shadow-[0_0_25px_rgba(6,182,212,0.4)] hover:border-cyan-400/50 h-full lg:after:content-[''] lg:after:absolute lg:after:top-1/2 lg:after:-right-8 lg:after:w-8 lg:after:h-[2px] lg:after:bg-gradient-to-r lg:after:from-purple-500/50 lg:after:to-cyan-500/50 lg:after:shadow-[0_0_8px_rgba(6,182,212,0.6)]">
             {/* Corner Accent */}
             <div className="absolute -top-1 -left-1 w-4 h-4 border-t-2 border-l-2 border-cyan-400 rounded-tl-md" />
             <div className="absolute -bottom-1 -right-1 w-4 h-4 border-b-2 border-r-2 border-cyan-400 rounded-br-md" />
@@ -155,7 +92,7 @@ export default function BioSection() {
         <div className="order-3 lg:order-3 flex flex-col gap-6">
           
           {/* Education Card */}
-          <div className="group relative p-6 bg-[#0a0a0c]/80 backdrop-blur-md border border-purple-500/30 rounded-xl shadow-[0_0_15px_rgba(168,85,247,0.2)] transition-all duration-500 hover:shadow-[0_0_25px_rgba(6,182,212,0.4)] hover:border-cyan-400/50">
+          <div className="group relative p-6 bg-[#0a0a0c]/80 backdrop-blur-md border border-purple-500/30 rounded-xl shadow-[0_0_15px_rgba(168,85,247,0.2)] transition-all duration-500 hover:shadow-[0_0_25px_rgba(6,182,212,0.4)] hover:border-cyan-400/50 lg:before:content-[''] lg:before:absolute lg:before:top-1/2 lg:before:-left-8 lg:before:w-8 lg:before:h-[2px] lg:before:bg-gradient-to-r lg:before:from-cyan-500/50 lg:before:to-purple-500/50 lg:before:shadow-[0_0_8px_rgba(6,182,212,0.6)]">
              {/* Corner Accent */}
              <div className="absolute -top-1 -right-1 w-4 h-4 border-t-2 border-r-2 border-cyan-400 rounded-tr-md" />
             
@@ -182,7 +119,7 @@ export default function BioSection() {
           </div>
 
           {/* Skills Card */}
-          <div className="group relative p-6 bg-[#0a0a0c]/80 backdrop-blur-md border border-purple-500/30 rounded-xl shadow-[0_0_15px_rgba(168,85,247,0.2)] transition-all duration-500 hover:shadow-[0_0_25px_rgba(6,182,212,0.4)] hover:border-cyan-400/50">
+          <div className="group relative p-6 bg-[#0a0a0c]/80 backdrop-blur-md border border-purple-500/30 rounded-xl shadow-[0_0_15px_rgba(168,85,247,0.2)] transition-all duration-500 hover:shadow-[0_0_25px_rgba(6,182,212,0.4)] hover:border-cyan-400/50 lg:before:content-[''] lg:before:absolute lg:before:top-1/2 lg:before:-left-8 lg:before:w-8 lg:before:h-[2px] lg:before:bg-gradient-to-r lg:before:from-cyan-500/50 lg:before:to-purple-500/50 lg:before:shadow-[0_0_8px_rgba(6,182,212,0.6)]">
              {/* Corner Accent */}
              <div className="absolute -bottom-1 -left-1 w-4 h-4 border-b-2 border-l-2 border-cyan-400 rounded-bl-md" />
             
