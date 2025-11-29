@@ -3,7 +3,6 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 import Link from 'next/link';
 import rehypePrettyCode from 'rehype-pretty-code';
 import BackButton from '../../../../components/BackButton';
-import BackButton from '../../../../components/BackButton';
 
 export async function generateStaticParams() {
   const posts = getSortedPostsData('en');
