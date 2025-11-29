@@ -70,36 +70,25 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section 2: Biography */}
-      <section id="bio" className="section content-section">
-        <div className="card-wrapper">
-          <SpotlightCard href="/bio">
-            <FaUser className="text-5xl text-gray-600 group-hover:text-purple-400 group-hover:drop-shadow-[0_0_10px_rgba(168,85,247,0.5)] transition-all duration-300 ease-in-out group-hover:scale-110" />
-            <span className="card-title font-mono uppercase tracking-widest">{t.bioTitle}</span>
-          </SpotlightCard>
-          <p className="code-caption">{'//'} {t.bioCaption}</p>
-        </div>
-      </section>
-
-      {/* Section 3: Dev Blog */}
-      <section id="blog" className="section content-section">
-        <div className="card-wrapper">
-          <SpotlightCard href="/blog">
-            <FaTerminal className="text-5xl text-gray-600 group-hover:text-purple-400 group-hover:drop-shadow-[0_0_10px_rgba(168,85,247,0.5)] transition-all duration-300 ease-in-out group-hover:scale-110" />
-            <span className="card-title font-mono uppercase tracking-widest">{t.blogTitle}</span>
-          </SpotlightCard>
-          <p className="code-caption">{'//'} {t.blogCaption}</p>
-        </div>
-      </section>
-
-      {/* Section 4: Photography Portfolio */}
-      <section id="portfolio" className="section content-section">
-        <div className="card-wrapper">
-          <SpotlightCard href="/portfolio">
-            <FaCamera className="text-5xl text-gray-600 group-hover:text-purple-400 group-hover:drop-shadow-[0_0_10px_rgba(168,85,247,0.5)] transition-all duration-300 ease-in-out group-hover:scale-110" />
-            <span className="card-title font-mono uppercase tracking-widest">{t.photoTitle}</span>
-          </SpotlightCard>
-          <p className="code-caption">{'//'} {t.photoCaption}</p>
+      {/* Section for Cards */}
+      <section id="cards-section" className="mt-24">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <SpotlightCard href="/bio" className="h-full">
+              <FaUser className="text-5xl text-gray-600 group-hover:text-purple-400 group-hover:drop-shadow-[0_0_10px_rgba(168,85,247,0.5)] transition-all duration-300 ease-in-out group-hover:scale-110" />
+              <span className="card-title font-mono uppercase tracking-widest">{t.bioTitle}</span>
+            </SpotlightCard>
+            
+            <SpotlightCard href="/blog" className="h-full">
+              <FaTerminal className="text-5xl text-gray-600 group-hover:text-purple-400 group-hover:drop-shadow-[0_0_10px_rgba(168,85,247,0.5)] transition-all duration-300 ease-in-out group-hover:scale-110" />
+              <span className="card-title font-mono uppercase tracking-widest">{t.blogTitle}</span>
+            </SpotlightCard>
+            
+            <SpotlightCard href="/portfolio" className="h-full">
+              <FaCamera className="text-5xl text-gray-600 group-hover:text-purple-400 group-hover:drop-shadow-[0_0_10px_rgba(168,85,247,0.5)] transition-all duration-300 ease-in-out group-hover:scale-110" />
+              <span className="card-title font-mono uppercase tracking-widest">{t.photoTitle}</span>
+            </SpotlightCard>
+          </div>
         </div>
       </section>
 
