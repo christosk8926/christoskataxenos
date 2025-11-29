@@ -61,20 +61,22 @@ const translations = {
       frontend: {
         title: "Frontend & UI",
         skills: [
-          { label: "REACT / NEXT.JS", level: "Loading...", width: "25%" },
-          { label: "CSS / TAILWIND", level: "Loading...", width: "35%" }
+          { label: "REACT / NEXT.JS", level: "Exploring", width: "15%" },
+          { label: "CSS / TAILWIND", level: "Exploring", width: "20%" }
         ]
       },
       backend: {
         title: "Backend",
         skills: [
-          { label: "PYTHON", level: "Intermediate", width: "50%" }
+          { label: "PYTHON", level: "Intermediate", width: "50%" },
+          { label: "C LANGUAGE", level: "Loading...", width: "33%" }
         ]
       },
       infrastructure: {
         title: "Infrastructure",
         skills: [
-          { label: "NETWORKING", level: "Production Ready", width: "90%" }
+          { label: "NETWORKING", level: "Production Ready", width: "95%" },
+          { label: "HARDWARE & SYSTEMS", level: "Production Ready", width: "100%" }
         ]
       }
     }
@@ -135,20 +137,22 @@ const translations = {
       frontend: {
         title: "Frontend & UI",
         skills: [
-          { label: "REACT / NEXT.JS", level: "Loading...", width: "25%" },
-          { label: "CSS / TAILWIND", level: "Loading...", width: "35%" }
+          { label: "REACT / NEXT.JS", level: "Exploring", width: "15%" },
+          { label: "CSS / TAILWIND", level: "Exploring", width: "20%" }
         ]
       },
       backend: {
         title: "Backend",
         skills: [
-          { label: "PYTHON", level: "Intermediate", width: "50%" }
+          { label: "PYTHON", level: "Intermediate", width: "50%" },
+          { label: "ΓΛΩΣΣΑ C", level: "Loading...", width: "33%" }
         ]
       },
       infrastructure: {
         title: "Υποδομές",
         skills: [
-          { label: "ΔΙΚΤΥΑ / INFRA", level: "Production Ready", width: "90%" }
+          { label: "NETWORKING", level: "Production Ready", width: "95%" },
+          { label: "HARDWARE & SYSTEMS", level: "Production Ready", width: "100%" }
         ]
       }
     }

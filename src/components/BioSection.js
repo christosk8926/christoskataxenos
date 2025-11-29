@@ -137,7 +137,7 @@ export default function BioSection() {
                         <div className="flex justify-between text-xs font-mono text-gray-300 mb-1.5">
                           <span>{skill.label}</span>
                           <span className={`
-                            ${skill.level === 'Loading...' ? 'text-yellow-400 animate-pulse' : ''}
+                            ${skill.level === 'Loading...' || skill.level === 'Exploring' ? 'text-purple-400 animate-pulse' : ''}
                             ${skill.level === 'Intermediate' ? 'text-cyan-400' : ''}
                             ${skill.level === 'Production Ready' ? 'text-green-400' : ''}
                           `}>
