@@ -12,7 +12,57 @@ const translations = {
     blogTitle: "Dev Blog",
     blogCaption: "// My brain dump. Mostly bugs, sometimes features.",
     photoTitle: "Photography",
-    photoCaption: "// High resolution. Low stress."
+    photoCaption: "// High resolution. Low stress.",
+    // Bio Section Translations
+    experienceTitle: "Professional Experience",
+    educationTitle: "Education",
+    skillsTitle: "Skills",
+    roles: {
+      technician: {
+        title: "Network and Computer Technician (Freelancer)",
+        dateLocation: "2007 - Present • Remote/Client Sites",
+        responsibilities: "Responsibilities:",
+        responsibilitiesList: [
+          "System administration",
+          "Network setup/support",
+          "Hardware/software troubleshooting",
+          "Client consultation"
+        ],
+        skillsLabel: "Skills:",
+        skillsList: [
+          "TCP/IP, DNS, DHCP",
+          "Windows Server, Linux",
+          "Hardware diagnostics"
+        ],
+        achievementsLabel: "Achievements:",
+        achievementsList: [
+          "Improved network uptime by 15%",
+          "Reduced support tickets by 10%"
+        ]
+      },
+      security: {
+        title: "Security Systems Technician",
+        date: "2014 - 2018",
+        description: "Installation, maintenance, fault diagnosis, and technical support for alarm and security camera systems."
+      },
+      seniorDev: {
+        title: "Senior Developer",
+        date: "2023 - Present",
+        description: "Leading frontend architecture and cyberpunk UI implementation."
+      }
+    },
+    education: {
+      university: "Hellenic Open University",
+      degree: "Informatics (BSc)",
+      iek: "IEK Rhodes",
+      iekDegree: "Computer and Network Technician"
+    },
+    skillLabels: {
+      react: "REACT / NEXT.JS",
+      python: "PYTHON",
+      css: "CSS / TAILWIND",
+      networking: "NETWORKING & INFRASTRUCTURE"
+    }
   },
   el: {
     heroDescription: "Από τη διαχείριση δικτύων, στον σχεδιασμό λογισμικού. Με έδρα τη Στουτγκάρδη και ως φοιτητής Computer Science, εξελίσσω το τεχνικό μου υπόβαθρο σε δημιουργική γνώση. Στόχος μου είναι να συνδυάσω την εμπειρία των υποδομών με τον κώδικα, χτίζοντας γερές βάσεις για μια σύγχρονη καριέρα στο Software Development.",
@@ -21,7 +71,57 @@ const translations = {
     blogTitle: "Dev Blog",
     blogCaption: "// Οι σκέψεις μου. Κυρίως bugs, σπάνια features.",
     photoTitle: "Φωτογραφία",
-    photoCaption: "// Υψηλή ανάλυση. Χαμηλό άγχος."
+    photoCaption: "// Υψηλή ανάλυση. Χαμηλό άγχος.",
+    // Bio Section Translations
+    experienceTitle: "Επαγγελματική Εμπειρία",
+    educationTitle: "Εκπαίδευση",
+    skillsTitle: "Δεξιότητες",
+    roles: {
+      technician: {
+        title: "Τεχνικός Δικτύων και Η/Υ (Freelancer)",
+        dateLocation: "2007 - Σήμερα • Απομακρυσμένα/Σε πελάτες",
+        responsibilities: "Αρμοδιότητες:",
+        responsibilitiesList: [
+          "Διαχείριση συστημάτων",
+          "Εγκατάσταση/υποστήριξη δικτύων",
+          "Διάγνωση βλαβών hardware/software",
+          "Συμβουλευτική πελατών"
+        ],
+        skillsLabel: "Δεξιότητες:",
+        skillsList: [
+          "TCP/IP, DNS, DHCP",
+          "Windows Server, Linux",
+          "Διάγνωση hardware"
+        ],
+        achievementsLabel: "Επιτεύγματα:",
+        achievementsList: [
+          "Βελτίωση uptime δικτύου κατά 15%",
+          "Μείωση αιτημάτων υποστήριξης κατά 10%"
+        ]
+      },
+      security: {
+        title: "Τεχνικός Συστημάτων Ασφαλείας",
+        date: "2014 - 2018",
+        description: "Εγκατάσταση, συντήρηση, διάγνωση βλαβών και τεχνική υποστήριξη για συστήματα συναγερμού και κάμερες ασφαλείας."
+      },
+      seniorDev: {
+        title: "Senior Developer",
+        date: "2023 - Σήμερα",
+        description: "Ηγεσία frontend αρχιτεκτονικής και υλοποίηση cyberpunk UI."
+      }
+    },
+    education: {
+      university: "Ελληνικό Ανοικτό Πανεπιστήμιο",
+      degree: "Πληροφορική (BSc)",
+      iek: "ΙΕΚ Ρόδου",
+      iekDegree: "Τεχνικός ηλεκτρονικών υπολογιστών και δικτύων"
+    },
+    skillLabels: {
+      react: "REACT / NEXT.JS",
+      python: "PYTHON",
+      css: "CSS / TAILWIND",
+      networking: "ΔΙΚΤΥΑ & ΥΠΟΔΟΜΕΣ"
+    }
   }
 };
 

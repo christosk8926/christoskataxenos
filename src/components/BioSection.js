@@ -1,8 +1,11 @@
 'use client';
 
 import React from 'react';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function BioSection() {
+  const { t } = useLanguage();
+
   return (
     <section className="relative w-full min-h-screen flex items-center justify-center p-4 lg:p-12 overflow-hidden font-sans">
       
@@ -73,38 +76,38 @@ export default function BioSection() {
 
             <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400 mb-4 flex items-center gap-2">
               <span className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse" />
-              Επαγγελματική Εμπειρία
+              {t.experienceTitle}
             </h3>
             
             <ul className="space-y-4">
               <li className="border-l-2 border-purple-500/50 pl-4">
-                <h4 className="text-white font-semibold">Network and Computer Technician (Freelancer)</h4>
-                <p className="text-sm text-cyan-300">2007 - Present • Remote/Client Sites</p>
+                <h4 className="text-white font-semibold">{t.roles.technician.title}</h4>
+                <p className="text-sm text-cyan-300">{t.roles.technician.dateLocation}</p>
                 <div className="text-xs text-gray-400 mt-1 space-y-1">
-                  <p className="font-semibold text-white">Responsibilities:</p>
+                  <p className="font-semibold text-white">{t.roles.technician.responsibilities}</p>
                   <ul className="list-disc list-inside ml-2">
-                    <li>System administration</li>
-                    <li>Network setup/support</li>
-                    <li>Hardware/software troubleshooting</li>
-                    <li>Client consultation</li>
+                    {t.roles.technician.responsibilitiesList.map((item, index) => (
+                      <li key={index}>{item}</li>
+                    ))}
                   </ul>
-                  <p className="font-semibold text-white mt-2">Skills:</p>
+                  <p className="font-semibold text-white mt-2">{t.roles.technician.skillsLabel}</p>
                   <ul className="list-disc list-inside ml-2">
-                    <li>TCP/IP, DNS, DHCP</li>
-                    <li>Windows Server, Linux</li>
-                    <li>Hardware diagnostics</li>
+                    {t.roles.technician.skillsList.map((item, index) => (
+                      <li key={index}>{item}</li>
+                    ))}
                   </ul>
-                  <p className="font-semibold text-white mt-2">Achievements:</p>
+                  <p className="font-semibold text-white mt-2">{t.roles.technician.achievementsLabel}</p>
                   <ul className="list-disc list-inside ml-2">
-                    <li>Improved network uptime by 15%</li>
-                    <li>Reduced support tickets by 10%</li>
+                    {t.roles.technician.achievementsList.map((item, index) => (
+                      <li key={index}>{item}</li>
+                    ))}
                   </ul>
                 </div>
               </li>
               <li className="border-l-2 border-gray-700 pl-4 group-hover:border-purple-500/50 transition-colors duration-300">
-                <h4 className="text-white font-semibold">Security Systems Technician</h4>
-                <p className="text-sm text-cyan-300">2014 - 2018</p>
-                <p className="text-xs text-gray-400 mt-1">Installation, maintenance, fault diagnosis, and technical support for alarm and security camera systems.</p>
+                <h4 className="text-white font-semibold">{t.roles.security.title}</h4>
+                <p className="text-sm text-cyan-300">{t.roles.security.date}</p>
+                <p className="text-xs text-gray-400 mt-1">{t.roles.security.description}</p>
               </li>
             </ul>
           </div>
@@ -148,19 +151,19 @@ export default function BioSection() {
             
             <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400 mb-4 flex items-center gap-2">
               <span className="w-2 h-2 bg-purple-400 rounded-full" />
-              Εκπαίδευση
+              {t.educationTitle}
             </h3>
             <ul className="space-y-3">
                <li className="flex justify-between items-baseline border-b border-white/5 pb-2">
-                 <span className="text-white font-medium">Ελληνικό Ανοικτό Πανεπιστήμιο</span>
+                 <span className="text-white font-medium">{t.education.university}</span>
                  <span className="text-xs text-gray-400 font-mono">2025</span>
                </li>
-               <li className="text-sm text-gray-400 italic">Πληροφορική (BSc)</li>
+               <li className="text-sm text-gray-400 italic">{t.education.degree}</li>
                <li className="flex justify-between items-baseline border-b border-white/5 pb-2 mt-3">
-                 <span className="text-white font-medium">ΙΕΚ Ρόδου</span>
+                 <span className="text-white font-medium">{t.education.iek}</span>
                  <span className="text-xs text-gray-400 font-mono">2008-2010</span>
                </li>
-               <li className="text-sm text-gray-400 italic">Τεχνικός ηλεκτρονικών υπολογιστών και δικτύων</li>
+               <li className="text-sm text-gray-400 italic">{t.education.iekDegree}</li>
             </ul>
           </div>
 
@@ -171,14 +174,14 @@ export default function BioSection() {
             
             <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400 mb-4 flex items-center gap-2">
               <span className="w-2 h-2 bg-cyan-400 rounded-full" />
-              Δεξιότητες
+              {t.skillsTitle}
             </h3>
             
             <div className="space-y-3">
               {/* Skill 1 */}
               <div>
                 <div className="flex justify-between text-xs font-mono text-gray-400 mb-1">
-                  <span>REACT / NEXT.JS</span>
+                  <span>{t.skillLabels.react}</span>
                   <span>15%</span>
                 </div>
                 <div className="w-full h-1.5 bg-gray-800 rounded-full overflow-hidden">
@@ -189,7 +192,7 @@ export default function BioSection() {
               {/* Skill 2 */}
               <div>
                 <div className="flex justify-between text-xs font-mono text-gray-400 mb-1">
-                  <span>PYTHON</span>
+                  <span>{t.skillLabels.python}</span>
                   <span>40%</span>
                 </div>
                 <div className="w-full h-1.5 bg-gray-800 rounded-full overflow-hidden">
@@ -200,7 +203,7 @@ export default function BioSection() {
               {/* Skill 3 */}
               <div>
                 <div className="flex justify-between text-xs font-mono text-gray-400 mb-1">
-                  <span>CSS / TAILWIND</span>
+                  <span>{t.skillLabels.css}</span>
                   <span>30%</span>
                 </div>
                 <div className="w-full h-1.5 bg-gray-800 rounded-full overflow-hidden">
@@ -211,7 +214,7 @@ export default function BioSection() {
               {/* Skill 4: Networking */}
               <div>
                 <div className="flex justify-between text-xs font-mono text-gray-400 mb-1">
-                  <span>NETWORKING & INFRASTRUCTURE</span>
+                  <span>{t.skillLabels.networking}</span>
                   <span>85%</span>
                 </div>
                 <div className="w-full h-1.5 bg-gray-800 rounded-full overflow-hidden">
