@@ -13,7 +13,7 @@ export default function BioSection() {
       
       {/* --- Circuit Board SVG Wires (Desktop Only) --- */}
       <div className="absolute inset-0 hidden lg:block pointer-events-none z-0">
-        <svg className="w-full h-full" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid meet">
+        <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
           <defs>
             <linearGradient id="wire-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
               <stop offset="0%" stopColor="#a855f7" stopOpacity="0" />
@@ -21,7 +21,7 @@ export default function BioSection() {
               <stop offset="100%" stopColor="#a855f7" stopOpacity="0" />
             </linearGradient>
             <filter id="glow">
-              <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+              <feGaussianBlur stdDeviation="0.5" result="coloredBlur"/>
               <feMerge>
                 <feMergeNode in="coloredBlur"/>
                 <feMergeNode in="SourceGraphic"/>
@@ -29,38 +29,48 @@ export default function BioSection() {
             </filter>
           </defs>
           
-          {/* Center to Left (Experience) */}
+          {/* Left Trace: Center to Experience Card */}
           <path 
-            d="M 600 400 L 300 400" 
+            d="M 50 50 L 15 50" 
             stroke="url(#wire-gradient)" 
-            strokeWidth="2" 
+            strokeWidth="0.3" 
             fill="none"
             filter="url(#glow)"
-            className="opacity-60"
+            className="opacity-80"
           />
-          <circle cx="300" cy="400" r="3" fill="#06b6d4" filter="url(#glow)" />
+          <circle cx="15" cy="50" r="0.5" fill="#06b6d4" filter="url(#glow)" />
 
-          {/* Center to Top Right (Education) */}
+          {/* Right Trace: Center to Split Point */}
           <path 
-            d="M 600 400 L 900 200" 
+            d="M 50 50 L 80 50" 
             stroke="url(#wire-gradient)" 
-            strokeWidth="2" 
+            strokeWidth="0.3" 
             fill="none"
             filter="url(#glow)"
-            className="opacity-60"
+            className="opacity-80"
           />
-          <circle cx="900" cy="200" r="3" fill="#06b6d4" filter="url(#glow)" />
 
-          {/* Center to Bottom Right (Skills) */}
+          {/* Right Top Branch: Split to Education Card */}
           <path 
-            d="M 600 400 L 900 600" 
+            d="M 80 50 L 80 20 L 90 20" 
             stroke="url(#wire-gradient)" 
-            strokeWidth="2" 
+            strokeWidth="0.3" 
             fill="none"
             filter="url(#glow)"
-            className="opacity-60"
+            className="opacity-80"
           />
-          <circle cx="900" cy="600" r="3" fill="#06b6d4" filter="url(#glow)" />
+          <circle cx="90" cy="20" r="0.5" fill="#06b6d4" filter="url(#glow)" />
+
+          {/* Right Bottom Branch: Split to Skills Card */}
+          <path 
+            d="M 80 50 L 80 80 L 90 80" 
+            stroke="url(#wire-gradient)" 
+            strokeWidth="0.3" 
+            fill="none"
+            filter="url(#glow)"
+            className="opacity-80"
+          />
+          <circle cx="90" cy="80" r="0.5" fill="#06b6d4" filter="url(#glow)" />
         </svg>
       </div>
 
