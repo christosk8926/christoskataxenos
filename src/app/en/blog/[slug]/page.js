@@ -53,7 +53,7 @@ export default async function Post({ params }) {
         Back to Blog
       </Link>
 
-      <article className="prose prose-invert max-w-none font-sans leading-relaxed space-y-6 text-gray-300">
+      <article className="prose prose-invert max-w-none font-sans prose-p:font-sans prose-headings:font-sans prose-li:font-sans prose-strong:font-sans leading-loose space-y-6 text-gray-300">
           <h1 className="text-4xl font-bold text-white mb-8">{postData.title}</h1>
           <div className="text-gray-400 mb-8 -mt-6">{postData.date}</div>
             

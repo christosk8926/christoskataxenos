@@ -48,7 +48,7 @@ export default async function Post({ params }) {
       </Link>
       {/* ----------------------------------- */}
 
-      <article className="prose prose-invert max-w-none font-sans leading-relaxed space-y-6 text-gray-300">
+      <article className="prose prose-invert max-w-none font-sans prose-p:font-sans prose-headings:font-sans prose-li:font-sans prose-strong:font-sans leading-loose space-y-6 text-gray-300">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
             {postData.title}
           </h1>
