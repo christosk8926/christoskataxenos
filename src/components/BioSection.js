@@ -78,6 +78,30 @@ export default function BioSection() {
             
             <ul className="space-y-4">
               <li className="border-l-2 border-purple-500/50 pl-4">
+                <h4 className="text-white font-semibold">Network and Computer Technician (Freelancer)</h4>
+                <p className="text-sm text-cyan-300">2007 - Present • Remote/Client Sites</p>
+                <div className="text-xs text-gray-400 mt-1 space-y-1">
+                  <p className="font-semibold text-white">Responsibilities:</p>
+                  <ul className="list-disc list-inside ml-2">
+                    <li>System administration</li>
+                    <li>Network setup/support</li>
+                    <li>Hardware/software troubleshooting</li>
+                    <li>Client consultation</li>
+                  </ul>
+                  <p className="font-semibold text-white mt-2">Skills:</p>
+                  <ul className="list-disc list-inside ml-2">
+                    <li>TCP/IP, DNS, DHCP</li>
+                    <li>Windows Server, Linux</li>
+                    <li>Hardware diagnostics</li>
+                  </ul>
+                  <p className="font-semibold text-white mt-2">Achievements:</p>
+                  <ul className="list-disc list-inside ml-2">
+                    <li>Improved network uptime by 15%</li>
+                    <li>Reduced support tickets by 10%</li>
+                  </ul>
+                </div>
+              </li>
+              <li className="border-l-2 border-gray-700 pl-4 group-hover:border-purple-500/50 transition-colors duration-300">
                 <h4 className="text-white font-semibold">Senior Developer</h4>
                 <p className="text-sm text-cyan-300">Tech Corp • 2023 - Present</p>
                 <p className="text-xs text-gray-400 mt-1">Leading frontend architecture and cyberpunk UI implementation.</p>
