@@ -43,7 +43,7 @@ export default function SpotlightCard({ children, href, className = "" }) {
       onMouseLeave={handleMouseLeave}
       className={`
         relative flex flex-col items-center justify-center gap-6 p-6
-        w-full md:w-[300px] h-[400px]
+        w-full md:w-[300px] h-[200px]
         bg-gray-900/50 backdrop-blur-md border border-purple-500/30 rounded-xl
         text-decoration-none overflow-hidden transition-all duration-300 ease-in-out
         hover:scale-105 shadow-lg shadow-[0_0_20px_rgba(168,85,247,0.3)] ${className}

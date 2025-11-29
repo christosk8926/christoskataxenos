@@ -4,17 +4,64 @@ import HeroTitle from '../components/HeroTitle';
 import { UserIcon, CodeIcon, CameraIcon } from '../components/Icons';
 import { useLanguage } from '../context/LanguageContext';
 import SpotlightCard from '../components/SpotlightCard';
+import { useRef, useState } from 'react'; // Import useRef and useState
 
 export default function Home() {
   const { t } = useLanguage();
+
+  // Logic for the hover effect on hero-content
+  const divRef = useRef(null);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [opacity, setOpacity] = useState(0);
+
+  const handleMouseMove = (e) => {
+    if (!divRef.current) return;
+
+    const div = divRef.current;
+    const rect = div.getBoundingClientRect();
+
+    setPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+  };
+
+  const handleFocus = () => {
+    setOpacity(1);
+  };
+
+  const handleBlur = () => {
+    setOpacity(0);
+  };
+
+  const handleMouseEnter = () => {
+    setOpacity(1);
+  };
+
+  const handleMouseLeave = () => {
+    setOpacity(0);
+  };
 
   return (
     <div className="scroll-container">
       {/* Section 1: Hero */}
       <section id="hero" className="section hero-section">
-        <div className="hero-content p-8 md:p-12 rounded-2xl bg-black/30 backdrop-blur-lg border border-white/10 shadow-xl mx-auto max-w-4xl">
+        <div 
+          className="hero-content relative p-8 md:p-12 rounded-2xl bg-black/30 backdrop-blur-lg border border-white/10 shadow-xl mx-auto max-w-4xl overflow-hidden" // Added relative and overflow-hidden
+          ref={divRef} // Added ref
+          onMouseMove={handleMouseMove} // Added event handlers
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          {/* Spotlight Overlay for hero-content */}
+          <div
+            className="pointer-events-none absolute inset-0 transition-opacity duration-300 z-0" //z-0 so text is above
+            style={{
+              opacity,
+              background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(127, 90, 240, 0.15), transparent 40%)`,
+            }}
+          />
           <HeroTitle />
-          <p className="hero-description max-w-2xl mx-auto mt-4 text-white text-lg">
+          <p className="hero-description relative z-10 max-w-2xl mx-auto mt-4 text-white text-lg"> {/* Added relative z-10 */}
             {t.heroDescription}
           </p>
         </div>
@@ -26,7 +73,6 @@ export default function Home() {
       {/* Section 2: Biography */}
       <section id="bio" className="section content-section">
         <div className="card-wrapper">
-          {/* ΑΛΛΑΓΗ 1: Μόνο κάθετος και το όνομα */}
           <SpotlightCard href="/bio">
             <div className="card-icon">
               <UserIcon />
@@ -40,7 +86,6 @@ export default function Home() {
       {/* Section 3: Dev Blog */}
       <section id="blog" className="section content-section">
         <div className="card-wrapper">
-          {/* ΑΛΛΑΓΗ 2: Μόνο κάθετος και το όνομα */}
           <SpotlightCard href="/blog">
             <div className="card-icon">
               <CodeIcon />
@@ -54,7 +99,6 @@ export default function Home() {
       {/* Section 4: Photography Portfolio */}
       <section id="portfolio" className="section content-section">
         <div className="card-wrapper">
-          {/* ΑΛΛΑΓΗ 3: Μόνο κάθετος και το όνομα */}
           <SpotlightCard href="/portfolio">
             <div className="card-icon">
               <CameraIcon />
