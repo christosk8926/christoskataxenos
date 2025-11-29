@@ -182,7 +182,7 @@ export default function BioSection() {
                   <span>90%</span>
                 </div>
                 <div className="w-full h-1.5 bg-gray-800 rounded-full overflow-hidden">
-                  <div className="h-full bg-gradient-to-r from-purple-600 to-cyan-500 w-[90%] shadow-[0_0_10px_rgba(6,182,212,0.5)]" />
+                  <div className="h-full bg-gradient-to-r from-purple-600 to-cyan-500 w-[15%] shadow-[0_0_10px_rgba(6,182,212,0.5)]" />
                 </div>
               </div>
               
@@ -193,7 +193,7 @@ export default function BioSection() {
                   <span>85%</span>
                 </div>
                 <div className="w-full h-1.5 bg-gray-800 rounded-full overflow-hidden">
-                  <div className="h-full bg-gradient-to-r from-purple-600 to-cyan-500 w-[85%] shadow-[0_0_10px_rgba(6,182,212,0.5)]" />
+                  <div className="h-full bg-gradient-to-r from-purple-600 to-cyan-500 w-[40%] shadow-[0_0_10px_rgba(6,182,212,0.5)]" />
                 </div>
               </div>
 
@@ -204,7 +204,18 @@ export default function BioSection() {
                   <span>95%</span>
                 </div>
                 <div className="w-full h-1.5 bg-gray-800 rounded-full overflow-hidden">
-                  <div className="h-full bg-gradient-to-r from-purple-600 to-cyan-500 w-[95%] shadow-[0_0_10px_rgba(6,182,212,0.5)]" />
+                  <div className="h-full bg-gradient-to-r from-purple-600 to-cyan-500 w-[30%] shadow-[0_0_10px_rgba(6,182,212,0.5)]" />
+                </div>
+              </div>
+              
+              {/* Skill 4: Networking */}
+              <div>
+                <div className="flex justify-between text-xs font-mono text-gray-400 mb-1">
+                  <span>NETWORKING & INFRASTRUCTURE</span>
+                  <span>85%</span>
+                </div>
+                <div className="w-full h-1.5 bg-gray-800 rounded-full overflow-hidden">
+                  <div className="h-full bg-gradient-to-r from-purple-600 to-cyan-500 w-[85%] shadow-[0_0_10px_rgba(6,182,212,0.5)]" />
                 </div>
               </div>
             </div>
