@@ -41,3 +41,7 @@ yarn-error.log*
 next-env.d.ts
 
 website_description_for_gemini.txt
+
+# Cost Estimations
+Cost_Estimation_Project.txt
+Cost_Estimation_Project_GR.txt

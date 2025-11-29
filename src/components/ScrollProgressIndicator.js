@@ -9,6 +9,8 @@ export default function ScrollProgressIndicator() {
   const pathname = usePathname();
 
   useEffect(() => {
+    if (pathname !== '/') return;
+
     const sections = ['hero', 'bio', 'blog', 'portfolio'];
     const observerOptions = {
       root: null, // viewport
@@ -32,14 +34,9 @@ export default function ScrollProgressIndicator() {
     });
 
     return () => {
-      sections.forEach((id) => {
-        const section = document.getElementById(id);
-        if (section) {
-          observer.unobserve(section);
-        }
-      });
+      observer.disconnect();
     };
-  }, []);
+  }, [pathname]);
 
   if (pathname !== '/') {
     return null;
