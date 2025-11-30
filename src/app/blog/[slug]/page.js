@@ -4,6 +4,7 @@ import Link from 'next/link';
 import rehypePrettyCode from 'rehype-pretty-code';
 import Stats from '../../../components/Stats';
 import Callout from '../../../components/Callout';
+import InteractionDock from '../../../components/InteractionDock';
 
 export async function generateStaticParams() {
   const posts = getSortedPostsData();
@@ -71,6 +72,8 @@ export default async function Post({ params }) {
 
   return (
     <div className="mx-auto max-w-3xl py-8 pt-32 px-6">
+      <InteractionDock title={postData.title} />
+      
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
