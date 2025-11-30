@@ -32,7 +32,18 @@ export default function FloatingDock() {
   }, []);
 
   const handleLanguageToggle = () => {
-    toggleLanguage();
+    if (pathname.includes('/blog')) {
+      if (pathname.startsWith('/en/blog')) {
+        const newPath = pathname.replace('/en', '');
+        window.location.href = newPath;
+      } else {
+        const cleanPath = pathname.startsWith('/') ? pathname : `/${pathname}`;
+        const newPath = `/en${cleanPath}`;
+        window.location.href = newPath;
+      }
+    } else {
+      toggleLanguage();
+    }
   };
 
   if (!mounted) return null;
