@@ -18,10 +18,10 @@ export default function LanguageSwitch() {
     if (pathname.includes('/blog')) {
       if (pathname.startsWith('/en/blog')) {
         const newPath = pathname.replace('/en', '');
-        router.push(newPath);
+        window.location.href = newPath;
       } else {
         const newPath = `/en${pathname}`;
-        router.push(newPath);
+        window.location.href = newPath;
       }
       if (language === 'en') toggleLanguage(); 
       else if (language === 'el') toggleLanguage();
