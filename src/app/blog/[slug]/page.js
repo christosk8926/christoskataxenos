@@ -12,6 +12,42 @@ export async function generateStaticParams() {
   }));
 }
 
+export async function generateMetadata({ params }) {
+  const resolvedParams = await params;
+  try {
+    const post = getPostData(resolvedParams.slug);
+    
+    if (!post) {
+      return;
+    }
+
+    const { title, date, description } = post;
+
+    return {
+      title: `${title} | Christos Kataxenos DevLog`,
+      description: description,
+      openGraph: {
+        title: title,
+        description: description,
+        type: 'article',
+        publishedTime: date,
+        authors: ['Christos Kataxenos'],
+        images: [
+          {
+            url: 'https://christoskataxenos.com/images/og-default.png',
+            width: 1200,
+            height: 630,
+          },
+        ],
+      },
+    };
+  } catch (error) {
+    return {
+      title: 'Post Not Found',
+    };
+  }
+}
+
 /** @type {import('rehype-pretty-code').Options} */
 const prettyCodeOptions = {
   theme: 'one-dark-pro',
@@ -35,6 +71,23 @@ export default async function Post({ params }) {
 
   return (
     <div className="mx-auto max-w-3xl py-8 pt-32 px-6">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BlogPosting',
+            headline: postData.title,
+            datePublished: postData.date,
+            description: postData.description,
+            author: {
+              '@type': 'Person',
+              name: 'Christos Kataxenos',
+              url: 'https://christoskataxenos.com',
+            },
+          }),
+        }}
+      />
 
       <article className="prose prose-invert max-w-none font-sans prose-p:font-sans prose-headings:font-sans prose-li:font-sans prose-strong:font-sans leading-loose space-y-6 text-gray-300">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">

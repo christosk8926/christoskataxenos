@@ -1,87 +1,106 @@
 ---
 title: "Human vs Compiler: Πώς το plh10.exe με έκανε να γράψω τον δικό μου Interpreter"
 date: "2025-12-05"
-description: "Όταν το toolchain του πανεπιστημίου λειτουργεί σαν ιός που διαλύει το local environment σου, η λύση είναι μία: Web-Based Salvation."
-tags: ["coding", "side-project", "pseudo-interpreter", "web-dev", "dependency-hell", "c-lang"]
+description: "Φοιτητής ΕΑΠ & Πληροφορική: Πώς το plh10.exe διέλυσε το VSCode μου και γιατί έφτιαξα έναν Web Interpreter για την Ψευδογλώσσα (χωρίς να σπάσω την C)."
+tags: ["coding", "side-project", "pseudo-interpreter", "web-dev", "dependency-hell", "c-lang", "eap"]
 ---
 
-<Stats panicLevel={100} coffeeCups={8} hoursSpent={48} />
+<Stats panicLevel={95} coffeeCups={8} hoursSpent={48} />
 
-Υπάρχει ένας άγραφος νόμος στο Software Engineering: **"Αν κάτι δουλεύει, μην το αγγίζεις"**. Στο ΕΑΠ, όμως, ανακαλύψαμε ένα νέο corollary αυτού του νόμου: **"Για να δουλέψει ο compiler της σχολής, πρέπει να σπάσεις οτιδήποτε άλλο λειτουργεί στο PC σου."**
+Υπάρχει ένας άγραφος νόμος στο Software Engineering: **"Αν κάτι δουλεύει, μην το αγγίζεις"**. Στο Ελληνικό Ανοικτό Πανεπιστήμιο (ΕΑΠ), όμως, ανακαλύψαμε ένα νέο corollary αυτού του νόμου: **"Για να δουλέψει ο compiler της σχολής, πρέπει να σπάσεις οτιδήποτε άλλο λειτουργεί στο PC σου."**
 
 Καλωσήρθατε στον πόλεμο της Ψευδογλώσσας.
 
 ## Το Boss Fight: plh10.exe και το Dependency Hell
 
-Στα πλαίσια των σπουδών, έπρεπε να χρησιμοποιήσουμε τον επίσημο compiler/interpreter (`plh10.exe`). Στην αρχή νομίζαμε ότι ήταν απλά θέμα λειτουργικού. "Αν έχεις Linux/Mac, ξέχνα το", μας έλεγαν. Αλλά η αλήθεια ήταν πολύ πιο σκοτεινή.
+Στα πλαίσια των σπουδών, έπρεπε να χρησιμοποιήσουμε τον επίσημο compiler/interpreter (`plh10.exe`). Στην αρχή νομίζαμε ότι ήταν απλά θέμα λειτουργικού. "Αν έχεις Linux/Mac, ξέχνα το", μας έλεγαν στο forum. Αλλά η αλήθεια ήταν πολύ πιο σκοτεινή.
 
-Ακόμα και στα **Windows**, στο "φυσικό" του περιβάλλον, το εργαλείο ήταν... *τοξικό*.
+Ακόμα και στα **Windows**, στο "φυσικό" του περιβάλλον, το εργαλείο ήταν... *τοξικό*. Η διαδικασία εγκατάστασης στο VSCode ήταν ένα επικίνδυνο ritual. Αν κατάφερνες (μετά από τάματα και πειράγματα στο System PATH) να κάνεις το `plh10.exe` να τρέξει Ψευδογλώσσα, ξαφνικά συνέβαινε το εξής μαγικό: **Σταματούσε να δουλεύει η κανονική C.**
 
-Η διαδικασία εγκατάστασης στο VSCode ήταν ένα επικίνδυνο ritual. Αν κατάφερνες (μετά από τάματα και πειράγματα στο PATH) να κάνεις το `plh10.exe` να τρέξει Ψευδογλώσσα, ξαφνικά συνέβαινε το εξής μαγικό: **Σταματούσε να δουλεύει η κανονική C.**
-
-Ήταν ένα zero-sum game.
+<Callout type="danger" title="Το Zero-sum Game του Φοιτητή">
 * Θες Ψευδογλώσσα; Χάνεις την GCC/MinGW.
-* Θες να γράψεις C; Χάνεις την Ψευδογλώσσα.
+* Θες να γράψεις C για την επόμενη άσκηση; Χάνεις την Ψευδογλώσσα.
 * Θες και τα δύο; **Blue Screen of Death (ψυχολογικό).**
+</Callout>
 
-Το configuration του VSCode γινόταν corrupted πιο γρήγορα και από save file σε cyberpunk παιχνίδι την ημέρα κυκλοφορίας.
+Το configuration του VSCode `settings.json` γινόταν corrupted πιο γρήγορα και από save file σε Cyberpunk παιχνίδι την ημέρα κυκλοφορίας.
 
 ## Η Εξίσωση της Λύτρωσης
 
-Όταν η υπομονή (P) τείνει στο 0 και το Environment Pollution (EP) τείνει στο άπειρο, τότε η καινοτομία (I) είναι μονόδρομος.
+Όταν η υπομονή ($P$) τείνει στο 0 και το Environment Pollution ($EP$) τείνει στο άπειρο, τότε η καινοτομία ($I$) είναι μονόδρομος.
 
 ```math
-I = \frac{Rage \times Coffee}{BrokenConfigs}
-```
+I = \frac{Rage \cdot Coffee}{BrokenConfigs}
 
-Εκείνη τη στιγμή, βλέποντας το VSCode μου να υποφέρει, είπα το ιστορικό: **"Fine, I'll do it myself."**
+Εκείνη τη στιγμή, βλέποντας το VSCode μου να υποφέρει, είπα το ιστορικό: "Fine, I'll do it myself."
 
-## Enter: The Web-Based Savior
+Enter: The Web-Based Savior
+Αντί να παλεύω με conflicts, local paths και binaries του 1990 που μισούν το modern development, αποφάσισα να φτιάξω κάτι που να είναι sandboxed.
 
-Αντί να παλεύω με conflicts, local paths και binaries του 1990 που μισούν το modern development, αποφάσισα να φτιάξω κάτι που να είναι **sandboxed**.
+Έτσι γεννήθηκε ο Ψευδογλώσσα Interpreter.
 
-Έτσι γεννήθηκε ο **Ψευδογλώσσα Interpreter**.
+<FileTree>
 
-Δεν χρειάζεται install. Δεν πειράζει το registry. Δεν διαλύει τον C compiler σου. Απλά ανοίγεις τον browser και γράφεις κώδικα. Είναι Web-based, lightweight και κυρίως **ΔΕΝ ΕΙΝΑΙ ΤΟ plh10.exe**.
+- public
+  - index.html
+- src
+  - core
+    - tokenizer.js
+    - parser.js
+    - executor.js
+- package.json
 
-### Το Legacy vs The New Way
+</FileTree>
 
-Αφού το πρόβλημα ήταν η C, ας δούμε τη διαφορά στη γλώσσα του πόνου (C). Δείτε πώς έτρεχε η ζωή μου πριν (Segmentation Fault) και μετά:
+Δεν χρειάζεται install. Δεν πειράζει το registry. Δεν διαλύει τον C compiler σου. Απλά ανοίγεις τον browser και γράφεις κώδικα. Είναι Web-based, lightweight και κυρίως ΔΕΝ ΕΙΝΑΙ ΤΟ plh10.exe.
 
-```c
+Το Legacy vs The New Way
+Αφού το πρόβλημα ήταν η C, ας δούμε τη διαφορά στη γλώσσα του πόνου. Δείτε πώς έτρεχε η ζωή μου πριν (Segmentation Fault) και μετά.
+
+Πριν την αλλαγή, το terminal έδειχνε συχνά αυτό:
+
+<Terminal title="bash"> $ gcc main.c -o main Error: 'gcc' is not recognized as an internal or external command. PATH is currently pointing to: C:\EAP\PLH10\WHY_ME
+
+</Terminal>
+
+Και ιδού η λογική στον κώδικα:
+
+```C
+
 #include <stdio.h>
 #include <stdlib.h>
-#include <sanity.h> // Library not found in EAP
+// #include <sanity.h> // Library not found in EAP
 
-void main() {
+int main() {
     int patience = 100;
     
     // SCENARIO A: The Legacy Workflow
     printf("Attempting to run plh10.exe...\n");
     
-    if (system("run_eap_compiler")) {
+    // Προσομοίωση καταστροφής
+    if (1) { 
         // Το dependency hell χτυπάει
-        patience = -1; // Integer Overflow
+        patience = -2147483648; // Integer Overflow due to stress
         
         // Καταστροφή του GCC environment
-        free(gcc_path); 
+        // free(gcc_path); 
         
         printf("Error: Segmentation fault. Your weekend is corrupted.\n");
-        return;
+        return 1;
     }
 
     // SCENARIO B: The Web Solution
     // Καμία παρέμβαση στο σύστημα. Κανένα malloc.
     printf("Opening Web Interpreter...\n");
-    system("start [https://pseudo-interpreter-landing.vercel.app](https://pseudo-interpreter-landing.vercel.app)");
+    
+    // system("start [https://pseudo-interpreter-landing.vercel.app](https://pseudo-interpreter-landing.vercel.app)");
     
     printf("Success: Code running. Dev environment safe.\n");
     return 0;
 }
 ```
-
 Το project είναι live και open για όλους τους συμφοιτητές που βαρέθηκαν να διαλέγουν ποια γλώσσα προγραμματισμού θα "θυσιάσουν" σήμερα για να κάνουν την εργασία τους.
 
-🔗 **Δοκιμάστε το εδώ:** [Ψευδογλώσσα Interpreter - Landing](#)
+<Callout type="success" title="Δοκιμάστε το"> 🔗 Link: Ψευδογλώσσα Interpreter </Callout>
 
-Γιατί τελικά, το καλύτερο εργαλείο είναι αυτό που δεν χρειάζεται manual για να μην ανατινάξει το PC σου.
+Γιατί τελικά, το καλύτερο εργαλείο είναι αυτό που δεν χρειάζεται manual 50 σελίδων για να μην ανατινάξει το PC σου.
