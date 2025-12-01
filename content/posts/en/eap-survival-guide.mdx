@@ -1,37 +1,48 @@
 ---
-title: "HOU Survival Guide: Panic Management"
+title: "HOU Survival Guide: Panic Management & Infinite Loops"
 date: "2025-11-28"
-description: "First contact with academic material and the realization that 'Studying' is a relative term."
-tags: ["uni-life", "eap", "survival", "python"]
+description: "First contact with academic material and the realization that 'Studying' is an abstract class."
+tags: ["uni-life", "eap", "survival", "python", "panic-mode"]
 ---
 
-I thought the hard part was getting accepted into the University. How innocent I was.
+<Stats panicLevel={95} coffeeCups={4} hoursSpent={6} />
 
-Almost 2 months after the start of my studies, and having a "random" idea about the university, I started studying just as I had learned in the **ancient years** when I was still in school.
+I thought the hard part was to get `successfully enrolled`. How innocent I was. Like a Junior Dev thinking they can deploy on a Friday afternoon and everything will go fine.
 
-We barely start, and already from the 1st week, they send us the topics for our first Written Assignments. And that's when I realize that Computer Science at HOU isn't just coding, it's **panic management**.
+Almost 2 months after the start, and having a —let's call it— "abstract" idea of what the **Hellenic Open University (HOU)** is, I started studying with the mindset I had in **legacy systems** (see: High School).
 
-For the 2 courses I chose for my 1st year, fortunately, **Morpheus** got into my head and made me think logically. I chose ONLY 2. I wrote quite well (almost perfectly I would say, if I had the brains I had in high school).
+**Fatal Error.**
 
-But a week after we got the grades, the **2nd Written Assignment** drops. And that's when the party starts: not even understanding the problem statements.
+## The Discovery of GE_Protocol
 
-BUT, that's why we are here. To make it.
+We barely boot up the semester and already by the 1st week a notification pops up: **Topics for the 1st Written Assignment (WA)**.
 
-## The Equation of Despair
+That's exactly where the context switch happens. I realize that Computer Science at HOU isn't just coding. It's **Distributed Panic Management**.
 
-As a young scientist (not in age, but in the world of science), I tried to model my situation programmatically. I discovered that study efficiency ($E$) is inversely proportional to the volume of information ($I$) and the square of open tabs in the browser ($T$).
+<Callout type="info" title="The Morpheus Effect">
+For the 1st year courses, thankfully Morpheus got into my head before I made my declaration. He offered me the blue pill (3 modules) and the red pill (2 modules).
+I took the red one. **I chose ONLY 2**.
+</Callout>
+
+In the first WA, I scored almost perfectly. Morale went up. I felt like a hacker.
+
+And then, exactly one week after the results, the event is triggered: **2nd Written Assignment**. And that's where the real party starts: reading the problem statement and parsing failing miserably.
+
+## The Equation of Despair (Math Block Edition)
+
+As a young scientist, I tried to model my situation. I discovered that study efficiency ($E$) is inversely proportional to the volume of information ($I$) and the square of open tabs in the browser ($T$).
 
 ```math
-E = 1 / (I * T^2)
+E = \frac{1}{I \times T^2} + \lim_{coffee \to \infty} (Panic)
 ```
 
-In short: The more tabs I have open to find "the solution", the less I understand what's going on.
+In short: The more tabs I have open on Stack Overflow to find "the solution", the more `understanding` tends to zero.
 
-## The Study Algorithm
+## The Algorithm of (Non) Study
 
-I tried to organize my schedule by writing a Python script. The logic was simple: *"While I have energy, I study"*.
+I tried to organize my schedule by writing a Python script. The logic was simple: *"While I have energy, I do processing"*.
 
-Unfortunately, I forgot to calculate the "Social Media" factor and the script entered an infinite loop of procrastination.
+Unfortunately, I forgot to handle the environment exceptions (see: Social Media) and the script entered an infinite loop of procrastination.
 
 ```python
 import time
@@ -40,29 +51,31 @@ import random
 def study_session(energy_level):
     caffeine_intake = 0
     
+    # Main Loop of despair
     while energy_level > 0:
-        print("Reading paragraph 3...")
-        time.sleep(1) # Simulation of concentration
+        print(f"Stats: Energy={energy_level}% | Coffee={caffeine_intake}")
+        print("Processing paragraph 3...")
+        time.sleep(1) # Concentration simulation (not really)
         
-        # The system bug
+        # The system bug (Distractions)
         distraction = random.choice([
-            "Discord", 
-            "Fridge", 
-            "Craving sweet or salty"
+            "Discord Notification", 
+            "Is the Fridge empty?", 
+            "Debugging on Facebook wall",
+            None
         ])
         
         if distraction:
-            print(f"Critical Error: Distracted by {distraction}")
-            energy_level -= 10
+            print(f"CRITICAL ERROR: Context Switch to '{distraction}'")
+            energy_level -= 15
             caffeine_intake += 1
             
         if caffeine_intake > 5:
-            print("Warning: Hands are shaking. Abort mission.")
-            break
+            # Hardware failure imminent
+            return "System Overload: Hands are shaking. Abort mission."
 
-    return "I'll start on Monday"
+    return "Exception: I'll start on Monday"
 
 # Run at your own risk
 status = study_session(100)
-print(status)
 ```
