@@ -1,7 +1,7 @@
 ---
-title: "2nd Written Assignment: How Gravity (Gravity Sort) Ruined My Christmas"
+title: "2nd Written Assignment: How Gravity (Bead Sort) Ruined My Christmas"
 date: "2025-12-04"
-description: "Analysis of the 2nd Written Assignment for PLH10. Bead Sort, arrays, and the futility of trying to code physics."
+description: "Analysis of the 2nd Written Assignment for PLH10. Bead Sort, arrays, and the futility of trying to code physics without functions."
 tags: ["eap", "plh10", "c", "assignment-2", "bead-sort", "algorithms"]
 ---
 
@@ -12,7 +12,7 @@ It's that time of the year. The Christmas cookies are hitting the shelves, the f
 Submission Deadline: **January 4, 2026**
 In short: New Year's Eve with the compiler.
 
-I opened the brief (12 pages, if you please) and my eyes landed on **Subtask 2**. Forget Bubble Sort and Quick Sort. This year we have... physics.
+I opened the brief (12 pages, if you please) and my eyes landed on **Exercise 2**. Forget Bubble Sort and Quick Sort. This year we have... physics.
 
 ## The Beast: Bead Sort (or Gravity Sort)
 
@@ -21,10 +21,10 @@ The assignment asks us to implement the **Bead Sort** algorithm. The idea is sim
 ### The Theory (Looks Easy on Paper)
 
 Imagine an abacus.
-1.  Each number is a row of beads (horizontal).
-2.  You turn the abacus vertically.
-3.  The beads fall to the lowest possible points.
-4.  You count the beads from bottom to top and you have the numbers in ascending order.
+1. Each number is a row of beads (horizontal).
+2. You turn the abacus vertically.
+3. The beads fall to the lowest possible points.
+4. You count the beads from bottom to top and you have the numbers in ascending order.
 
 <Callout type="info" title="Physics vs Code">
 In real life, gravity is free. In C, you have to write nested loops to simulate it.
@@ -40,17 +40,17 @@ The brief gives us a hint: We need an auxiliary array `counts` that tracks how m
 - assignment_2
   - src
     - bead_sort.c
-    - wildfire_stats.c (Subtask 1 - easy)
-    - cities_matrix.c (Subtask 3 - the nightmare of 2D arrays)
+    - wildfire_stats.c (Exercise 1 - easy)
+    - cities_matrix.c (Exercise 3 - the nightmare of 2D arrays)
 </FileTree>
 
 Essentially, the algorithm works in 4 steps:
-1.  **Reading:** We take the numbers (with defensive programming, let's not forget, values 0-100).
-2.  **Counting (`counts`):** Instead of moving beads one by one, we count how many beads each column has.
-3.  **Reconstruction (`B`):** We build the sorted array `B` by looking at the `counts` array.
-4.  **Printing:** The results on the screen.
+1. **Reading:** We take the numbers (with defensive programming, let's not forget, values 0-100).
+2. **Counting (`counts`):** Instead of moving beads one by one, we count how many beads each column has.
+3. **Reconstruction (`B`):** We build the sorted array `B` by looking at the `counts` array.
+4. **Printing:** The results on the screen.
 
-Here is a taste of the "logic" of falling in pseudo-C (without giving away the solution, Mr. Professor!):
+Here is a taste of the "logic" of falling in pseudo-C (without giving away the solution, Professor!):
 
 ```c
 // Imaginary code simulating the pain
@@ -69,14 +69,14 @@ for (each number in InputArray) {
 ### The Iceberg of Defensive Programming
 
 The University has an obsession (and between us, rightly so) with "defensive programming".
-In Subtask 1 with the wildfires, if the user enters a negative number of fires, we must tell them *"Invalid value. Try again"*.
+In Exercise 1 with the wildfires, if the user enters a negative number of fires, we must tell them *"Invalid value. Try again"*.
 
 In Bead Sort, we must check if the numbers are between 0 and 100.
 
-```text
+<Terminal title="App Output">
 Enter element 4: -1
 The value entered must be between 0 and 100. Please repeat input.
-```
+</Terminal>
 
 I've written this `do-while` loop so many times I see it in my sleep. In an ideal world, I would create a **Function** and be done with it. But at the University, the brief was clear: *"No use of functions"*. So, copy-paste and God help us.
 
@@ -84,7 +84,7 @@ I've written this `do-while` loop so many times I see it in my sleep. In an idea
 
 The Bead Sort method is impressive to watch, but probably not the most efficient for sorting millions of numbers (unless you have special hardware). However, it taught me something important: **How to think "laterally"**. To turn a physics problem into an array index problem.
 
-Now, if you'll excuse me, I'm off to battle with **Subtask 3**: Two-dimensional arrays and city distances. I hope I don't get lost along the way.
+Now, if you'll excuse me, I'm off to battle with **Exercise 3**: Two-dimensional arrays and city distances. I hope I don't get lost along the way.
 
 <Callout type="warning" title="Deadline Alert">
 The deadline is 04/01/2026. Don't leave it for New Year's Day.
