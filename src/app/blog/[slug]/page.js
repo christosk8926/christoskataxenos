@@ -4,6 +4,7 @@ import Link from 'next/link';
 import rehypePrettyCode from 'rehype-pretty-code';
 import Stats from '../../../components/Stats';
 import Callout from '../../../components/Callout';
+import FileTree from '../../../components/FileTree';
 import InteractionDock from '../../../components/InteractionDock';
 
 export async function generateStaticParams() {
@@ -104,7 +105,7 @@ export default async function Post({ params }) {
             
           <MDXRemote 
             source={postData.content}
-            components={{ Stats, Callout }}
+            components={{ Stats, Callout, FileTree }}
             options={{
               mdxOptions: {
                 rehypePlugins: [
