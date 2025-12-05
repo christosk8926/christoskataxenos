@@ -6,6 +6,7 @@ import Stats from '../../../components/Stats';
 import Callout from '../../../components/Callout';
 import FileTree from '../../../components/FileTree';
 import InteractionDock from '../../../components/InteractionDock';
+import ReadingProgress from '../../../components/ReadingProgress';
 
 export async function generateStaticParams() {
   const posts = getSortedPostsData();
@@ -73,6 +74,7 @@ export default async function Post({ params }) {
 
   return (
     <div className="mx-auto max-w-3xl py-8 pt-32 px-6">
+      <ReadingProgress />
       <InteractionDock title={postData.title} />
 
       <script

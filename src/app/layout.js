@@ -62,13 +62,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="el" suppressHydrationWarning={true}>
       {/* Font configuration */}
-      <body className={`${inter.variable} ${jetbrains.variable} font-sans antialiased text-white bg-[#0a0a0c] leading-relaxed`}>
+      <body className={`${inter.variable} ${jetbrains.variable} font-sans antialiased text-white bg-[#0a0a0c] leading-relaxed`} suppressHydrationWarning>
         <GridBackground />
         <Providers>
           <ClientOnlyFloatingDock /> {/* Render the FloatingDock wrapper */}
           <ClientOnlySocialMediaDock /> {/* Render the SocialMediaDock wrapper */}
           <main className="min-h-screen relative z-10">
-             {children}
+            {children}
           </main>
         </Providers>
       </body>
