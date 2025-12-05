@@ -1,6 +1,6 @@
 # christoskataxenos
 
-This is the personal website and blog of Christos Kataxenos. Built with modern web technologies, it serves as a platform to showcase projects, share thoughts, and provide information about my professional background.
+This is the personal website and blog of Christos Kataxenos, myself. Built with modern web technologies, it serves as a platform to showcase projects, share thoughts, and provide information about my professional background.
 
 ## Technologies Used
 
@@ -50,7 +50,7 @@ To run the project locally, follow these steps:
 
 # christoskataxenos (Ελληνικά)
 
-Αυτός είναι ο προσωπικός ιστότοπος και το ιστολόγιο του Χρήστου Καταξένου. Δημιουργήθηκε με σύγχρονες τεχνολογίες ιστού και χρησιμεύει ως πλατφόρμα για την προβολή έργων, την ανταλλαγή σκέψεων και την παροχή πληροφοριών σχετικά με το επαγγελματικό μου υπόβαθρο.
+Αυτός είναι ο προσωπικός ιστότοπος και το ιστολόγιο του Χρήστου Καταξενού(Εγώ ο ίδιος) . Δημιουργήθηκε με σύγχρονες τεχνολογίες ιστού και χρησιμεύει ως πλατφόρμα για την προβολή έργων, την ανταλλαγή σκέψεων και την παροχή πληροφοριών σχετικά με το επαγγελματικό μου υπόβαθρο.
 
 ## Χρησιμοποιούμενες Τεχνολογίες
 
