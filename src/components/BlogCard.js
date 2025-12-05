@@ -3,7 +3,7 @@
 import { useRef, useState } from 'react';
 import Link from 'next/link';
 
-export default function BlogCard({ slug, date, title, description, basePath = '/blog' }) {
+export default function BlogCard({ slug, date, title, description, readingTime, basePath = '/blog' }) {
   const divRef = useRef(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [opacity, setOpacity] = useState(0);
@@ -33,14 +33,14 @@ export default function BlogCard({ slug, date, title, description, basePath = '/
     setOpacity(0);
   };
 
-  const getReadTime = (desc) => {
-    const wordsPerMinute = 200; // Average reading speed
-    const wordCount = desc.split(/\s+/).filter(Boolean).length;
-    const readTime = Math.ceil(wordCount / wordsPerMinute);
-    return `${readTime > 0 ? readTime : 1} min read`; // Ensure at least 1 min read
-  };
-
-  const estimatedReadTime = getReadTime(description);
+  // Χρησιμοποιούμε το readingTime από το prop, αλλιώς fallback σε υπολογισμό
+  // Use readingTime from prop, otherwise fallback to calculation
+  const displayReadTime = readingTime || (() => {
+    const wordsPerMinute = 200;
+    const wordCount = description.split(/\s+/).filter(Boolean).length;
+    const rt = Math.ceil(wordCount / wordsPerMinute);
+    return rt > 0 ? rt : 1;
+  })();
 
   return (
     <Link
@@ -63,8 +63,8 @@ export default function BlogCard({ slug, date, title, description, basePath = '/
       <div
         className="spotlight-border"
         style={{
-            opacity,
-            background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(127, 90, 240, 0.4), transparent 40%)`,
+          opacity,
+          background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(127, 90, 240, 0.4), transparent 40%)`,
         }}
       />
 
@@ -73,7 +73,7 @@ export default function BlogCard({ slug, date, title, description, basePath = '/
           <time>{date}</time>
           <span className="mx-2">|</span>
           <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-          <span>{estimatedReadTime}</span>
+          <span>{displayReadTime} min read</span>
         </div>
 
         <h2 className="title">
@@ -140,7 +140,7 @@ export default function BlogCard({ slug, date, title, description, basePath = '/
           z-index: 10;
           display: flex;
           flex-direction: column;
-          width: 100%;
+          width: 100%:
           text-align: left;
         }
 

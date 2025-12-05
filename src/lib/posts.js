@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import { calculateReadingTime } from './readingTime';
 
 const postsDirectory = path.join(process.cwd(), 'content/posts');
 
@@ -8,8 +9,8 @@ export function getSortedPostsData(locale = 'el') {
   // Determine directory based on locale
   // 'el' (default) -> content/posts
   // 'en' -> content/posts/en
-  const targetDirectory = locale === 'en' 
-    ? path.join(postsDirectory, 'en') 
+  const targetDirectory = locale === 'en'
+    ? path.join(postsDirectory, 'en')
     : postsDirectory;
 
   // Create directory if it doesn't exist
@@ -31,9 +32,14 @@ export function getSortedPostsData(locale = 'el') {
       // Use gray-matter to parse the post metadata section
       const matterResult = matter(fileContents);
 
+      // Υπολογισμός χρόνου ανάγνωσης
+      // Calculate reading time
+      const readingTime = calculateReadingTime(matterResult.content);
+
       // Combine the data with the id
       return {
         slug,
+        readingTime,
         ...matterResult.data,
       };
     });
@@ -49,12 +55,12 @@ export function getSortedPostsData(locale = 'el') {
 }
 
 export function getPostData(slug, locale = 'el') {
-  const targetDirectory = locale === 'en' 
-    ? path.join(postsDirectory, 'en') 
+  const targetDirectory = locale === 'en'
+    ? path.join(postsDirectory, 'en')
     : postsDirectory;
-    
+
   const fullPath = path.join(targetDirectory, `${slug}.mdx`);
-  
+
   if (!fs.existsSync(fullPath)) {
     throw new Error(`Post not found: ${slug} in ${locale}`);
   }
@@ -64,9 +70,14 @@ export function getPostData(slug, locale = 'el') {
   // Use gray-matter to parse the post metadata section
   const matterResult = matter(fileContents);
 
+  // Υπολογισμός χρόνου ανάγνωσης
+  // Calculate reading time
+  const readingTime = calculateReadingTime(matterResult.content);
+
   return {
     slug,
     content: matterResult.content,
+    readingTime,
     ...matterResult.data,
   };
 }

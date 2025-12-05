@@ -13,9 +13,9 @@ export default function BlogPage() {
   return (
     <main className="min-h-screen py-8 pt-20 font-sans">
       <div className="max-w-4xl mx-auto space-y-6 px-6">
-        
+
         <header className="mb-12 text-center pt-8 relative">
-          
+
           <h1 className="text-4xl font-bold tracking-tight text-white mb-4">
             Blog
           </h1>
@@ -25,13 +25,14 @@ export default function BlogPage() {
         </header>
 
         <div className="max-w-2xl mx-auto flex flex-col gap-8">
-          {allPostsData.map(({ slug, date, title, description }) => (
+          {allPostsData.map(({ slug, date, title, description, readingTime }) => (
             <BlogCard
               key={slug}
               slug={slug}
               date={date}
               title={title}
               description={description}
+              readingTime={readingTime}
             />
           ))}
         </div>

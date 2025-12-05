@@ -18,7 +18,7 @@ export async function generateMetadata({ params }) {
   const resolvedParams = await params;
   try {
     const post = getPostData(resolvedParams.slug);
-    
+
     if (!post) {
       return;
     }
@@ -74,7 +74,7 @@ export default async function Post({ params }) {
   return (
     <div className="mx-auto max-w-3xl py-8 pt-32 px-6">
       <InteractionDock title={postData.title} />
-      
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -94,26 +94,28 @@ export default async function Post({ params }) {
       />
 
       <article className="prose prose-invert max-w-none font-sans prose-p:font-sans prose-headings:font-sans prose-li:font-sans prose-strong:font-sans leading-loose space-y-6 text-gray-300">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
-            {postData.title}
-          </h1>
-          
-          {/* Ημερομηνία με Monospace για στυλ */}
-          <div className="font-mono text-xs text-cyan-500/80 mb-12 border-b border-gray-800 pb-8">
-            PUBLISHED: {postData.date}
-          </div>
-            
-          <MDXRemote 
-            source={postData.content}
-            components={{ Stats, Callout, FileTree }}
-            options={{
-              mdxOptions: {
-                rehypePlugins: [
-                  [rehypePrettyCode, prettyCodeOptions],
-                ],
-              },
-            }}
-          />
+        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
+          {postData.title}
+        </h1>
+
+        {/* Date and reading time with Monospace styling */}
+        <div className="font-mono text-xs text-cyan-500/80 mb-12 border-b border-gray-800 pb-8 flex items-center gap-4">
+          <span>PUBLISHED: {postData.date}</span>
+          <span className="text-gray-600">•</span>
+          <span className="text-purple-400">{postData.readingTime} MIN READ</span>
+        </div>
+
+        <MDXRemote
+          source={postData.content}
+          components={{ Stats, Callout, FileTree }}
+          options={{
+            mdxOptions: {
+              rehypePlugins: [
+                [rehypePrettyCode, prettyCodeOptions],
+              ],
+            },
+          }}
+        />
       </article>
     </div>
   );
